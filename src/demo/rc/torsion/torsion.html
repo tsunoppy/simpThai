@@ -1,0 +1,362 @@
+<!Doctype html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <title>TorsionBeam</title>
+    <style>
+    </style>
+    <link rel="stylesheet" href="torsion.css">
+    <script src="../../menu.js"></script>
+  </head>
+
+  <body>
+
+    <div class="boxA">
+
+      <div class="box1" id = "a-box">
+
+	<h1> <u>Design for Torision</u></h1>
+
+	<p>
+	  <h4>- Title;
+	    &nbsp;&nbsp;
+	    <input type="text" style="width:630px" id="job" >
+	  </h4>
+	</p>
+
+      </div >
+
+    </div>
+
+
+    <div class="boxA">
+
+      <p><h4> - Input</h4></p>
+
+      <div class="box2">
+	  <p id="picture"></p>
+	  <script src="myscript.js"></script>
+      </div>
+
+      <div class="box3" id="b-box">
+	<!--
+	    <input type="button" id="btn" value="EXE">/><br />
+	    -->
+	<table>
+	  <tbody>
+
+	    <tr>
+	      <td>
+		Factored Shear Force, V<sub>u</sub>:
+	      </td>
+	      <td>
+		<input type="text" id="vu" >
+		&nbsp;kN
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td>
+		Factored Torsional moment, T<sub>u</sub>:
+	      </td>
+	      <td>
+		  <input type="text" id="tu" >
+		  &nbsp;kN.m
+	      </td>
+	    </tr>
+
+	    <tr>
+		<td>
+		    Beam Size; bw x h:
+		</td>
+		<td>
+		    <input type="text" id="bw" >
+		    &nbsp;mm x &nbsp;
+		    <input type="text" id="h" >
+		    &nbsp;mm
+		</td>
+	    </tr>
+
+	    <tr>
+		<td>
+		    Covering, Side, Top, Bot:
+		</td>
+		<td>
+		    <input type="text" id="coverSide" >
+		    &nbsp;mm
+		    <input type="text" id="coverTop" >
+		    &nbsp;mm
+		    <input type="text" id="coverBot" >
+		    &nbsp;mm
+		</td>
+	    </tr>
+
+	    <tr>
+	      <td>
+		Compressive Concrete Strength, fc:
+	      </td>
+	      <td>
+		<input type="text" id="fc" >
+		&nbsp;N/mm<sup>2</sup>
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td>
+		Tensile strength for primary, fy:
+	      </td>
+	      <td>
+		<input type="text" id="fy" >
+		&nbsp;N/mm<sup>2</sup>
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td>
+		Tnsile strength for ties, f<sub>yt</sub>:
+	      </td>
+	      <td>
+		  <input type="text" id="fyt" >
+		  &nbsp;N/mm<sup>2</sup>
+	      </td>
+	    </tr>
+
+	    <tr>
+		<td>
+		    Strength reduction factor, φ:
+		</td>
+		<td>
+		    <input type="text" id="phi" >
+		    &nbsp;-
+		</td>
+	    </tr>
+
+	  </tbody>
+	</table>
+
+	<table>
+	    <tbody>
+
+		<tr>
+		    <td>
+			A<sub>t</sub> :
+		    </td>
+		    <td>
+			<form name="TorsionForm">
+			    <select name="DiaTorsionName" onChange="DrawSec();">
+				<option value="9">RB9</option>
+				<option value="12">DB12</option>
+				<option value="16">DB16</option>
+			    </select>
+			</form>
+		    </td>
+		    <td>@</td>
+		    <td>
+			<input type="text" id="pitchTorsion">
+		    </td>
+
+		    <td>
+			, A<sub>l</sub> :
+		    </td>
+		    <td>
+			<input type="text" id="lnum">
+		    </td>
+		    <td>-</td>
+		    <td>
+			<form name ="LongForm">
+			    <select name="DiaLongName" onChange="DrawSec();">
+				<option value="12">DB12</option>
+				<option value="16">DB16</option>
+				<option value="20">DB20</option>
+				<option value="25">DB25</option>
+				<option value="28">DB28</option>
+				<option value="32">DB32</option>
+			    </select>
+			</form>
+		    </td>
+		    <td>
+		    </td>
+
+		</tr>
+
+
+	    </tbody>
+
+	</table>
+
+	<table>
+	    <tbody>
+
+		<tr>
+		    <td>
+			A<sub>v</sub> :
+		    </td>
+		    <td>
+			<form name="ShearForm">
+			    <select name="DiaShearName"  onChange="DrawSec();">
+				<option value="9" >RB9</option>
+				<option value="12">DB12</option>
+				<option value="16">DB16</option>
+			    </select>
+			</form>
+		    </td>
+		    <td>@</td>
+		    <td>
+			<input type="text" id="pitch" >
+		    </td>
+
+		    <td>
+			, + Sub Str. :
+		    </td>
+		    <td>
+			<input type="text" id="strNum">
+		    </td>
+		    <td>-</td>
+		    <td>
+			<form name ="ShearForm2">
+			    <select name="DiaShearName2" onChange="DrawSec();">
+				<option value="9" >RB9</option>
+				<option value="12">DB12</option>
+				<option value="16">DB16</option>
+			    </select>
+			</form>
+		    </td>
+		    <td>
+			@
+			<input type="text" id="pitch2" >
+		    </td>
+		</tr>
+
+
+	    </tbody>
+
+	</table>
+
+
+	<table>
+	    <tbody>
+
+		<tr>
+		    <td>
+			RF/Top :
+		    </td>
+		    <td>
+			<input type="text" id="topNum" >
+		    </td>
+		    <td>-</td>
+		    <td>
+			<form name ="topRebarForm">
+			    <select name="topRebarName" onChange="DrawSec();">
+				<option value="12">DB12</option>
+				<option value="16">DB16</option>
+				<option value="20">DB20</option>
+				<option value="25">DB25</option>
+				<option value="28">DB28</option>
+				<option value="32">DB32</option>
+			    </select>
+			</form>
+		    </td>
+
+		    <td>
+			&nbsp; + &nbsp;
+		    </td>
+		    <td>
+			<input type="text" id="topNum2" >
+		    </td>
+		    <td>-</td>
+		    <td>
+			<form name ="topRebarForm2">
+			    <select name="topRebarName2" onChange="DrawSec();">
+				<option value="12">DB12</option>
+				<option value="16">DB16</option>
+				<option value="20">DB20</option>
+				<option value="25">DB25</option>
+				<option value="28">DB28</option>
+				<option value="32">DB32</option>
+			    </select>
+			</form>
+		    </td>
+
+		</tr>
+
+		<tr>
+		    <td>
+			RF/Bot :
+		    </td>
+		    <td>
+			<input type="text" id="botNum" >
+		    </td>
+		    <td>-</td>
+		    <td>
+			<form name ="botRebarForm">
+			    <select name="botRebarName" onChange="DrawSec();">
+				<option value="12">DB12</option>
+				<option value="16">DB16</option>
+				<option value="20">DB20</option>
+				<option value="25">DB25</option>
+				<option value="28">DB28</option>
+				<option value="32">DB32</option>
+			    </select>
+			</form>
+		    </td>
+
+		    <td>
+			&nbsp; + &nbsp;
+		    </td>
+		    <td>
+			<input type="text" id="botNum2" >
+		    </td>
+		    <td>-</td>
+		    <td>
+			<form name ="botRebarForm2">
+			    <select name="botRebarName2" onChange="DrawSec();">
+				<option value="12">DB12</option>
+				<option value="16">DB16</option>
+				<option value="20">DB20</option>
+				<option value="25">DB25</option>
+				<option value="28">DB28</option>
+				<option value="32">DB32</option>
+			    </select>
+			</form>
+		    </td>
+
+		    <td>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" value="Exe" onclick="OnButtonClick();">
+		    </td>
+
+		</tr>
+
+
+	    </tbody>
+	</table>
+
+      </div>
+    </div>
+
+
+    <div class="boxA">
+      <div class="box4">
+	<!--
+	    <input type="button" value="EXE" onclick="OnButtonClick();">
+	    -->
+      </div>
+    </div>
+
+
+    <div class="boxA">
+      <div class="box5">
+	  <p id="result"></p>
+      </div>
+    </div>
+
+    <div class="boxA">
+	<div id="Insert" class="box5">
+	</div>
+    </div>
+
+  </body>
+
+</html>

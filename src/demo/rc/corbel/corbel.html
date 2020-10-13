@@ -1,0 +1,248 @@
+<!Doctype html>
+<html lang="ja">
+
+    <head>
+
+	<meta charset="utf-8">
+	<title>Corbel</title>
+	<style>
+	</style>
+	<link rel="stylesheet" href="css/SlabOnGrade.css">
+	<script src="../../menu.js"></script>
+    </head>
+
+    <body>
+
+	<div class="boxA">
+
+	    <div class="box1" id = "a-box">
+
+		<h1> <u>Corbel Check Based on ACI SMD Method </u></h1>
+		<!--
+		<table>
+		    <tr>
+			<td>Reference:&nbsp</td>
+			<td>
+			    <a href="images/15_Brackets_Corbel.pdf">
+				15 Brackets, Corbels and Beam Ledges
+			    </a><br  />
+			</td>
+		    </tr>
+		</table>
+		-->
+		<p>
+		    <h4>- Title;
+			&nbsp;&nbsp;
+			<input type="text" style="width:630px" id="job" value="JOB NAME">
+		    </h4>
+		</p>
+
+	    </div >
+
+	</div>
+
+
+	<div class="boxA">
+
+	    <p><h4> - Input</h4></p>
+	    <div class="box2">
+		<p><img src="images/Document1.jpg" alt="Stress Location" width="300px" /><br  /></p>
+		<script src="myscript.js"></script>
+	    </div>
+
+	    <div class="box3" id="b-box">
+		<!--
+		     <input type="button" id="btn" value="EXE">/><br />
+		   -->
+		<table>
+		    <tbody>
+			<tr>
+			    <td>
+				Factored Shear Force, V<sub>u</sub>:
+			    </td>
+			    <td>
+				<input type="text" id="vu">
+				&nbsp;kN
+			    </td>
+			</tr>
+			<tr>
+			    <td>
+				Factored horizontal tensile force, N<sub>uc</sub>:
+			    </td>
+			    <td>
+				<input type="text" id="vnuc">
+				&nbsp;kN, (N<sub>uc</sub> &lt V<sub>u</sub>)
+			    </td>
+			</tr>
+			<tr>
+			    <td>
+				Shear Span, a<sub>v</sub>:
+			    </td>
+			    <td>
+				<input type="text" id="av" >
+				&nbsp;mm (a<sub>v</sub>/d &lt 1.0)
+			    </td>
+			</tr>
+			<tr>
+			    <td>
+				Corbel Width; bw:
+			    </td>
+			    <td>
+				<input type="text" id="bw">
+				&nbsp;mm
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Depth of Member; h:
+			    </td>
+			    <td>
+				<input type="text" id="h" >
+				&nbsp;mm
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Covering:
+			    </td>
+			    <td>
+				<input type="text" id="cover" >
+				&nbsp;mm
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Compressive Concrete Strength, fc:
+			    </td>
+			    <td>
+				<input type="text" id="fc" >
+				&nbsp;N/mm<sup>2</sup>
+			    </td>
+			</tr>
+			<tr>
+			    <td>
+				Strength reduction factor, φ:
+			    </td>
+			    <td>
+				<input type="text" id="phi" >
+				&nbsp;-
+			    </td>
+			</tr>
+			<tr>
+			    <td>
+				Tensile strength for primary, fy:
+			    </td>
+			    <td>
+				<input type="text" id="fy1" >
+				&nbsp;N/mm<sup>2</sup>
+			    </td>
+			</tr>
+			<tr>
+			    <td>
+				Tnsile strength for ties, f<sub>y2</sub>:
+			    </td>
+			    <td>
+				<input type="text" id="fy2" >
+				&nbsp;N/mm<sup>2</sup>
+			    </td>
+			</tr>
+
+		    </tbody>
+		</table>
+
+		<table>
+		    <tbody>
+			<tr>
+			    <td>
+				Friction Coefficient, &mu;
+			    </td>
+			    <td>
+				<form name="muForm">
+				    <select name="muName" width="100px">
+					<option value="1.4" selected>1.4 &lambda; Concrete placed monolithically</option>
+					<option value="1.0">1.0 &lambda; surface intentionally roughened</option>
+				    </select>
+				</form>
+			    </td>
+			</tr>
+		    </tbody>
+		</table>
+
+
+		<table>
+		    <tbody>
+			<tr>
+			    <td>
+				A<sub>sc</sub> :
+			    </td>
+			    <td>
+				<input type="text" id="n1" >
+			    </td>
+			    <td>-</td>
+			    <td>
+				<form name ="sample">
+				    <select name="dia1" onCharge="function OnPrimeDia()">
+					<option value="12">DB12</option>
+					<option value="16">DB16</option>
+					<option value="20">DB20</option>
+					<option value="25" selected>DB25</option>
+					<option value="28">DB28</option>
+					<option value="32">DB32</option>
+				    </select>
+				</form>
+			    </td>
+			    <td>
+				, A<sub>h</sub> :
+			    </td>
+			    <td>
+				<input type="text" id="n2" >
+			    </td>
+			    <td>-</td>
+			    <td>
+				<form name ="sample1">
+				    <select name="dia2" onCharge="function OnPrimeDia()">
+					<option value="9">RB9</option>
+					<option value="9">DB10</option>
+					<option value="12" selected>DB12</option>
+					<option value="16">DB16</option>
+				    </select>
+				</form>
+			    </td>
+			    <td>
+			    </td>
+
+			    <td>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" value="EXE" onclick="OnButtonClick();">
+		    </td>
+		</tr>
+
+
+	    </tbody>
+	</table>
+
+      </div>
+    </div>
+
+
+    <div class="boxA">
+	<div class="box4">
+	    <!--
+		 <input type="button" value="EXE" onclick="OnButtonClick();">
+	       -->
+	</div>
+    </div>
+
+
+    <div class="boxA">
+      <div class="box5">
+	<p id="result"></p>
+      </div>
+    </div>
+
+  </body>
+
+</html>

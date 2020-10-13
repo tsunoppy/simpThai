@@ -1,0 +1,262 @@
+<!Doctype html>
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+    <title>BearCap</title>
+    <!--
+	 <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+       -->
+    <style>
+    </style>
+    <link rel="stylesheet" href="bearingCap.css">
+    <script src="bearingCap.js"></script>
+    <script src="../../menu.js"></script>
+  </head>
+
+  <body>
+
+      <div class="boxA">
+	  <div class="box1" id = "a-box">
+
+	      <h1> <u> Soil Bearing Capacity for Spread Footing by Terzaghi Method</u></h1>
+
+
+	      <p>
+		  <h4>- Title;
+		      &nbsp;&nbsp;
+		      <input type="text" style="width:630px" id="job" >
+		  </h4>
+	      </p>
+
+
+	      <form name="inputform" >
+
+		  <p><h4> - Footing Size, BxD</h4></p>
+
+		  <table>
+		      <tbody>
+
+			  <tr>
+			      <td>
+				  B =
+				  &nbsp
+			      </td>
+			      <td>
+				  <input type="text" id="bb"  onChange="OnButtonClick(this.form);">
+			      </td>
+			      <td>
+				  m &nbsp;
+			      </td>
+			      <td>
+				  L =
+				  &nbsp
+			      </td>
+			      <td>
+				  <input type="text" id="ll"  onChange="OnButtonClick(this.form);">
+			      </td>
+			      <td>
+				  m &nbsp;
+			      </td>
+			      <td>
+				  Depth =
+				  &nbsp
+			      </td>
+			      <td>
+				  <input type="text" id="df"  onChange="OnButtonClick(this.form);">
+			      </td>
+			      <td>
+				  m
+			      </td>
+
+			      <td>
+				  ( where, B < L )
+			      </td>
+
+			      <td id="AddImpo" >
+			      </td>
+			  </tr>
+
+		      </tbody>
+		  </table>
+
+		  <p><h4> - Soil Property</h4></p>
+
+		  <table>
+		      <tbody>
+
+
+			  <tr>
+			      <td>
+				  SPT N-Value =
+				  &nbsp
+			      </td>
+			      <td>
+				  <input type="text" id="nValue"  onChange="OnGetPhi();">
+			      </td>
+
+			      <td>
+				  - &nbsp; &nbsp;
+			      </td>
+
+			  </tr>
+		      </tbody>
+		  </table>
+		  <table>
+		      <tbody>
+			  <tr id="addPhi"></tr>
+		      </tbody>
+		  </table>
+		  <table>
+		      <tbody>
+			  <tr>
+			      <td>
+				  Friction Angle, &phi; =
+				  &nbsp
+			      </td>
+			      <td>
+				  <input type="text" id="phi"  onChange="OnButtonClick(this.form);">
+			      </td>
+			      <td>
+				  deg.
+			      </td>
+
+			      <td>
+				  Cohesion, C =
+				  &nbsp
+			      </td>
+			      <td>
+				  <input type="text" id="cc"  onChange="OnButtonClick(this.form);">
+			      </td>
+			      <td>
+				  ton/m<sup>2</sup>
+			      </td>
+			  </tr>
+
+			  <tr>
+			      <td>
+				  &gamma; =
+				  &nbsp
+			      </td>
+			      <td>
+				  <input type="text" id="gamma"  onChange="OnButtonClick(this.form);">
+			      </td>
+			      <td>
+				  ton/m<sup>3</sup> &nbsp;
+			      </td>
+
+			      <td>
+				  &gamma;' =
+				  &nbsp
+			      </td>
+			      <td>
+				  <input type="text" id="gammab"  onChange="OnButtonClick(this.form);">
+			      </td>
+			      <td>
+				  ton/m<sup>3</sup>
+			      </td>
+			  </tr>
+
+		      </tbody>
+		  </table>
+
+		  <p><h4> - Safety Factor</h4></p>
+
+		  <table>
+		      <tbody>
+			  <tr>
+			      <td>
+
+			      </td>
+			      <td>
+				  Safety Factor =
+				  &nbsp
+			      </td>
+			      <td>
+				  <input type="text" id="sf"  onChange="OnButtonClick(this.form);">
+			      </td>
+		      </tbody>
+		  </table>
+
+		  <p Align="right">
+		      <input type="button" value="EXE" onclick="OnButtonClick();">
+		  </p>
+
+
+		  <!--
+		       </div>
+		     -->
+	  </div >
+
+      </div>
+
+	      </form>
+
+	      <div class="boxA">
+		  <div class="box4">
+		      <!--
+			   <input type="button" value="EXE" onclick="OnButtonClick();">
+			 -->
+		  </div>
+	      </div>
+
+
+	      <div class="boxA">
+		  <div id="result" class="box5">
+		  </div>
+	      </div>
+
+	      <div class="boxA">
+
+		  <div id="Insert" class="box5">
+
+		      <p><h4> - Referenece</h4></p>
+
+	      <p>
+		  q<sub>ult</sub> = c N<sub>c</sub> s<sub>c</sub> + q N<sub>q</sub> + 0.5 &gamma; B N<sub>&gamma;</sub> s<sub>&gamma;</sub>
+	      </p>
+
+	      <p>
+		  where,
+	      </p>
+
+	      <table><tbody>
+		  <tr><td>
+		      c = Cohesion (ton/m<sup>2</sup> )
+		  </td></tr>
+		  <tr><td>
+		      B = Footing width (m)
+		  </td></tr>
+		  <tr><td>
+		      q = Effective overburden pressure = &gamma;' D (ton/m<sup>2</sup> )
+		  </td></tr>
+		  <tr><td>
+		      N<sub>c</sub>, N<sub>q</sub>, N<sub>&gamma;</sub> =
+		      Bearing capacity factors
+		  </td></tr>
+	      </tbody></table>
+
+	      <p>
+		  Shape factors:
+	      </p>
+
+	      <table><tbody>
+		  <tr><td>
+		      s<sub>c</sub> = 1 + 0.30 B/L
+		  </td></tr>
+		  <tr><td>
+		      s<sub>&gamma;</sub> = 1 - 0.2 (B/L)
+		  </td></tr>
+	      </tbody></table>
+
+	      <p>
+		  Ref) Bowles, J.E.(1996), Foundation Analysis and Design, 5<sup>th</sup> edition, McGraw-Hill, USA.
+	      </p>
+	  </div>
+      </div>
+
+
+  </body>
+
+</html>

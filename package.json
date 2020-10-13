@@ -1,0 +1,35 @@
+{
+  "name": "simpthai",
+  "version": "1.0.0",
+  "description": "structural, engineering, calculation, thailand",
+  "scripts": {
+    "test": "test",
+    "dev": "nw src/",
+    "prod": "nwbuild --platforms win64,osx64,linux64 --buildDir dist/ src/",
+    "pz": "nw-zip-builder -p 'osx64' src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsunoppy/simpThai.git"
+  },
+  "keywords": [
+    "nwjs",
+    "structural",
+    "design",
+    "engineering"
+  ],
+  "author": "tsunoda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tsunoppy/simpThai/issues"
+  },
+  "homepage": "https://github.com/tsunoppy/simpThai#readme",
+  "dependencies": {
+    "nw": "^0.49.0",
+    "nw-builder": "^3.5.7"
+  },
+  "product_string": "simpthai",
+  "devDependencies": {
+    "nw-zip-builder": "^1.1.0"
+  }
+}

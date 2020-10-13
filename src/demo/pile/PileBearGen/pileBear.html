@@ -1,0 +1,436 @@
+<!Doctype html>
+<html lang="en">
+
+    <head>
+
+	<meta charset="utf-8">
+	<title>PileBearGen</title>
+	<style>
+	</style>
+	<link rel="stylesheet" href="css/SlabOnGrade.css">
+	<script src="../../menu.js"></script>
+	<script src="./myscript.js"></script>
+
+    </head>
+
+    <body>
+
+	<div class="boxA">
+
+	    <div class="box1" id = "a-box">
+
+		<h1> <u> Pile Bearing Capacity in General </u></h1>
+
+		<p>
+		    <h4>- Title;
+			&nbsp;&nbsp;
+			<input type="text" style="width:630px" id="job" >
+		    </h4>
+		</p>
+
+	    </div >
+
+	</div>
+
+
+	<div class="boxA">
+
+
+
+	    <p><h4> - General </h4></p>
+
+	    <div class="box5" id="b-box">
+		<!--
+		     <input type="button" id="btn" value="EXE">/><br />
+		   -->
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td>
+				Dia. = <input type="text" id="Dia" >
+				mm &nbsp;
+			    </td>
+
+			    <td>
+				<select id="type" onChange="OnButtonClick();">
+				    <option>SQ.</option>
+				    <option>Round.</option>
+				</select>
+			    </td>
+			</tr>
+
+		    </tbody>
+		</table>
+
+		<p>
+		    <h4> - Tip Bearing </h4>
+		</p>
+
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td>
+				q<sub>e</sub>=
+				<select id="TipSand" onChange="OnButtonClick();">
+				    <option>240[15+1/2(N-15)]</option>
+				    <option>300N</option>
+				</select>
+			    </td>
+			    <td>
+				For Sand
+			    </td>
+			    <td>
+				&nbsp; &lt;
+				<input type="text" class="w60" id="TipLimitSand" >
+				kN/m<sup>2</sup>
+			    </td>
+			</tr>
+			<tr>
+			    <td>
+				q<sub>e</sub>=
+				<select id="TipClay" onChange="OnButtonClick();">
+				    <option>9C</option>
+				    <option>6C</option>
+				    <option>240[15+1/2(N-15)]</option>
+				</select>
+			    </td>
+			    <td>
+				For Clay
+			    </td>
+			    <td>
+				&nbsp; &lt;
+				<input type="text" class="w60" id="TipLimitClay" >
+				kN/m<sup>2</sup>
+			    </td>
+			</tr>
+		    </tbody>
+		</table>
+
+		<table>
+		    <tbody>
+			<tr>
+			    <td>
+				SF:
+			    </td>
+			    <td>
+				<input type="text" id="SFtip" >
+				&nbsp;&nbsp;
+			    </td>
+			</tr>
+
+		    </tbody>
+		</table>
+
+		<p>
+		    <h4> - Friction </h4>
+		</p>
+
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td>
+				f<sub>r</sub>=
+				<select id="FricSand" onChange="OnButtonClick();">
+				    <option>K<sub>h</sub> q tan( 3/4 &Phi; )</option>
+				    <option>2.0 N (Vietnam)</option>
+				    <option>10/3N (JIS)</option>
+				</select>
+			    </td>
+			    <td>
+				For Sand
+			    </td>
+			    <td>
+				&nbsp; &lt;
+				<input type="text" class="w60" id="FricLimitSand" >
+				kN/m<sup>2</sup>
+			    </td>
+			</tr>
+			<tr>
+			    <td>
+				f<sub>r</sub>=
+				<select id="FricClay" onChange="OnButtonClick();">
+				    <option>&alpha; C</option>
+				    <option>C (JIS, Vietnam)</option>
+				</select>
+			    </td>
+			    <td>
+				For Clay
+			    </td>
+			    <td>
+				&nbsp; &lt;
+				<input type="text" class="w60" id="FricLimitClay" >
+				kN/m<sup>2</sup>
+			    </td>
+			</tr>
+		    </tbody>
+		</table>
+
+		<table>
+		    <tbody>
+			<tr>
+			    <td>
+				SF
+			    </td>
+			    <td>
+				<input type="text" id="SFfric" >
+				&nbsp;&nbsp;
+			    </td>
+			</tr>
+		    </tbody>
+		</table>
+
+
+		<table><tbody>
+		    <tr>
+			<td>
+			    Layer Num.:
+			</td>
+			<td>
+			    <input type="text" id="LayerNum" >
+			    (Max. 50 Layers)
+			    &nbsp;
+			    <input type="button" value="Add" onclick="addLoad();">
+			    <input type="button" value="Remove" onclick="removeLoad();">
+			</td>
+		    </tr>
+		</tbody></table>
+
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td>
+				No.
+			    </td>
+			    <td>
+			      Level,
+			    </td>
+			    <td>
+			      m
+			    </td>
+			    <td>
+				SPT
+				&nbsp;
+			    </td>
+			    <td>
+				Type
+				&nbsp;
+			    </td>
+			    <td>
+				Dens.
+				&nbsp;
+			    </td>
+			    <td>
+				Friction
+				&nbsp;
+			    </td>
+			    <td>
+				z
+			    </td>
+			    <td>
+				Lf
+			    </td>
+			    <td>
+				q
+			    </td>
+			    <td>
+				C(&alpha;), &phi;
+			    </td>
+			    <td>
+				f<sub>r</sub>
+				, q<sub>e</sub>
+			    </td>
+			    <td>
+				Q<sub>e</sub>
+			    </td>
+			    <td>
+				Q<sub>f</sub>
+			    </td>
+			    <td>
+				Q<sub>u</sub>
+			    </td>
+			    <td>
+				Q<sub>a</sub>
+			    </td>
+			</tr>
+
+
+			<tr>
+			    <td>
+
+			    </td>
+			    <td>
+				From
+			    </td>
+			    <td>
+				To
+			    </td>
+			    <td>
+				, N<sub>f</sub>
+			    </td>
+			  <td>
+
+			  </td>
+			  <td>
+			      &gamma;
+			      kN/m<sup>3</sup>
+			  </td>
+			  <td>
+
+			  </td>
+			  <td>
+			    m
+			  </td>
+			  <td>
+			      m
+			  </td>
+			  <td>
+			      kN/m<sup>2</sup>
+			  </td>
+			  <td>
+			      kN/m<sup>2</sup>
+			      ,deg.
+			  </td>
+			  <td>
+			      kN/m<sup>2</sup>
+			  </td>
+			  <td>
+			      kN
+			  </td>
+			  <td>
+			      kN
+			  </td>
+			  <td>
+			      kN
+			  </td>
+			  <td>
+			      kN
+			  </td>
+			</tr>
+
+
+			<tr>
+			    <td>
+			      1: &nbsp;
+			    </td>
+
+			    <td>
+				<input type="text" id="Level1" >
+			    </td>
+
+			    <td>
+				<input type="text" id="LevelTo1" >
+			    </td>
+
+			    <td>
+				<input class="w20" type="text" id="Nf1" >
+			    </td>
+			    <td>
+				<select id="Prop1">
+				    <option>Sand</option>
+				    <option>Clay</option>
+				</select>
+			    </td>
+			    <td>
+				<input class="w20" type="text" id="g1" >
+			    </td>
+			    <td>
+				<select id="Fric1">
+				    <option>Include</option>
+				    <option>Ignore</option>
+				</select>
+			    </td>
+
+			    <td id="z1"></td>
+			    <td id="Lf1"></td>
+			    <td id="q1"></td>
+
+			    <td id="Para1"></td>
+			    <td id="fr1"></td>
+
+			    <td id="Qe1"></td>
+			    <td id="Qf1"></td>
+			    <td id="Qu1"></td>
+			    <td id="Qa1"></td>
+
+			</tr>
+
+			<tr id="2"></tr>
+			<tr id="3"></tr>
+			<tr id="4"></tr>
+			<tr id="5"></tr>
+			<tr id="6"></tr>
+			<tr id="7"></tr>
+			<tr id="8"></tr>
+			<tr id="9"></tr>
+			<tr id="10"></tr>
+			<tr id="11"></tr>
+			<tr id="12"></tr>
+			<tr id="13"></tr>
+			<tr id="14"></tr>
+			<tr id="15"></tr>
+			<tr id="16"></tr>
+			<tr id="17"></tr>
+			<tr id="18"></tr>
+			<tr id="19"></tr>
+			<tr id="20"></tr>
+			<tr id="21"></tr>
+			<tr id="22"></tr>
+			<tr id="23"></tr>
+			<tr id="24"></tr>
+			<tr id="25"></tr>
+			<tr id="26"></tr>
+			<tr id="27"></tr>
+			<tr id="28"></tr>
+			<tr id="29"></tr>
+			<tr id="30"></tr>
+			<tr id="31"></tr>
+			<tr id="32"></tr>
+			<tr id="33"></tr>
+			<tr id="34"></tr>
+			<tr id="35"></tr>
+			<tr id="36"></tr>
+			<tr id="37"></tr>
+			<tr id="38"></tr>
+			<tr id="39"></tr>
+			<tr id="40"></tr>
+			<tr id="41"></tr>
+			<tr id="42"></tr>
+			<tr id="43"></tr>
+			<tr id="44"></tr>
+			<tr id="45"></tr>
+			<tr id="46"></tr>
+			<tr id="47"></tr>
+			<tr id="48"></tr>
+			<tr id="49"></tr>
+			<tr id="50"></tr>
+
+		    </tbody>
+		</table>
+
+		<div class="boxA">
+		    <table>
+			<tbody>
+			    <tr>
+				<td>
+				  <input type="button" value="Exe" onclick="OnButtonClick();">
+				</td>
+			    </tr>
+			</tbody>
+		    </table>
+		</div>
+
+	    </div>
+	</div>
+
+	<div class="boxA">
+	  <div class="box5" id="result">
+	    </div>
+	</div>
+
+    </body>
+
+</html>

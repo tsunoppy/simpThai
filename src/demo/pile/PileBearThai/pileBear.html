@@ -1,0 +1,496 @@
+<!Doctype html>
+<html lang="en">
+
+    <head>
+
+	<meta charset="utf-8">
+	<title>PileBearThai</title>
+	<style>
+	</style>
+	<link rel="stylesheet" href="css/SlabOnGrade.css">
+	<script src="../../menu.js"></script>
+	<script src="./myscript.js"></script>
+
+    </head>
+
+    <body>
+
+	<div class="boxA">
+
+	    <div class="box1" id = "a-box">
+
+		<h1> <u> Pile Bearing Capacity in Thai </u></h1>
+
+		<p>
+		    <h4>- Title;
+			&nbsp;&nbsp;
+			<input type="text" style="width:630px" id="job" >
+		    </h4>
+		</p>
+
+	    </div >
+
+	</div>
+
+
+	<div class="boxA">
+
+
+
+	    <p><h4> - General </h4></p>
+
+	    <div class="box5" id="b-box">
+		<!--
+		     <input type="button" id="btn" value="EXE">/><br />
+		   -->
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td>
+				L = <input type="text" id="L" >
+				m&nbsp;
+			    </td>
+			</tr>
+
+		    </tbody>
+		</table>
+
+		<p>
+		    <h4> - Tip Bearing </h4>
+		</p>
+
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td>
+				N<sub>tip</sub>:
+			    </td>
+			    <td>
+				<input type="text" id="Ntip" >
+				&nbsp;&nbsp;
+			    </td>
+			    <td>
+				<select id="PropTip">
+				    <option>Sand</option>
+				    <option>Clay</option>
+				</select>
+			    </td>
+			    <td>
+				SF:
+			    </td>
+			    <td>
+				<input type="text" id="SFtip" >
+				&nbsp;&nbsp;
+			    </td>
+			</tr>
+
+		    </tbody>
+		</table>
+
+		<p>
+		    <h4> - Friction </h4>
+		</p>
+
+		<table><tbody>
+		    <tr>
+			<td>
+			    Layer Num.:
+			</td>
+			<td>
+			    <input type="text" id="LayerNum" >
+			    (Max. 50 Layers)
+			    &nbsp;
+			    <input type="button" value="Add" onclick="addLoad();">
+			    <input type="button" value="Remove" onclick="removeLoad();">
+			</td>
+			<td>
+			    SF
+			</td>
+			<td>
+			    <input type="text" id="SFfric" >
+			    &nbsp;&nbsp;
+			</td>
+		    </tr>
+		</tbody></table>
+
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td>
+				No.
+			    </td>
+			    <td>
+			      Level,
+			    </td>
+			    <td>
+			      m
+			    </td>
+			    <td>
+			      SPT, N<sub>f</sub>
+			      &nbsp;
+			    </td>
+			    <td>
+			      Soil Type
+			      &nbsp;
+			    </td>
+			    <td>
+			      Density
+			      &nbsp;
+			    </td>
+			    <td>
+			      Friction
+			      &nbsp;
+			    </td>
+			    <td>
+			      z
+			    </td>
+			    <td>
+			      Lf
+			    </td>
+			    <td>
+			      q
+			    </td>
+			</tr>
+
+
+			<tr>
+			  <td>
+
+			  </td>
+			  <td>
+			    From
+			  </td>
+			  <td>
+			    To
+			  </td>
+			  <td>
+
+			  </td>
+			  <td>
+
+			  </td>
+			  <td>
+			      &gamma;
+			      kN/m<sup>3</sup>
+			  </td>
+			  <td>
+
+			  </td>
+			  <td>
+			    m
+			  </td>
+			  <td>
+			    m
+			  </td>
+			  <td>
+			    kN/m<sup>2</sup>
+			  </td>
+			</tr>
+
+
+			<tr>
+			    <td>
+			      1: &nbsp;
+			    </td>
+
+			    <td>
+				<input type="text" id="Level1" >
+			    </td>
+
+			    <td>
+				<input type="text" id="LevelTo1" >
+			    </td>
+
+			    <td>
+				<input class="w20" type="text" id="Nf1" >
+			    </td>
+			    <td>
+				<select id="Prop1">
+				    <option>Sand</option>
+				    <option>Clay</option>
+				</select>
+			    </td>
+			    <td>
+				<input class="w20" type="text" id="g1" >
+			    </td>
+			    <td>
+				<select id="Fric1">
+				    <option>Include</option>
+				    <option>Ignore</option>
+				</select>
+			    </td>
+
+			    <td id="z1"></td>
+			    <td id="Lf1"></td>
+			    <td id="q1"></td>
+
+			    <td id="Para1">
+			    </td>
+			</tr>
+
+			<tr id="2"></tr>
+			<tr id="3"></tr>
+			<tr id="4"></tr>
+			<tr id="5"></tr>
+			<tr id="6"></tr>
+			<tr id="7"></tr>
+			<tr id="8"></tr>
+			<tr id="9"></tr>
+			<tr id="10"></tr>
+			<tr id="11"></tr>
+			<tr id="12"></tr>
+			<tr id="13"></tr>
+			<tr id="14"></tr>
+			<tr id="15"></tr>
+			<tr id="16"></tr>
+			<tr id="17"></tr>
+			<tr id="18"></tr>
+			<tr id="19"></tr>
+			<tr id="20"></tr>
+			<tr id="21"></tr>
+			<tr id="22"></tr>
+			<tr id="23"></tr>
+			<tr id="24"></tr>
+			<tr id="25"></tr>
+			<tr id="26"></tr>
+			<tr id="27"></tr>
+			<tr id="28"></tr>
+			<tr id="29"></tr>
+			<tr id="30"></tr>
+			<tr id="31"></tr>
+			<tr id="32"></tr>
+			<tr id="33"></tr>
+			<tr id="34"></tr>
+			<tr id="35"></tr>
+			<tr id="36"></tr>
+			<tr id="37"></tr>
+			<tr id="38"></tr>
+			<tr id="39"></tr>
+			<tr id="40"></tr>
+			<tr id="41"></tr>
+			<tr id="42"></tr>
+			<tr id="43"></tr>
+			<tr id="44"></tr>
+			<tr id="45"></tr>
+			<tr id="46"></tr>
+			<tr id="47"></tr>
+			<tr id="48"></tr>
+			<tr id="49"></tr>
+			<tr id="50"></tr>
+
+		    </tbody>
+		</table>
+
+		<div class="boxA">
+		    <table>
+			<tbody>
+			    <tr>
+				<td>
+				  <input type="button" value="Exe" onclick="OnButtonClick();">
+				</td>
+			    </tr>
+			</tbody>
+		    </table>
+		</div>
+
+	    </div>
+	</div>
+
+	<div class="boxA">
+	  <div class="box4">
+		<!--
+		     <input type="button" value="EXE" onclick="OnButtonClick();">
+		   -->
+	    </div>
+	</div>
+
+
+	<div class="boxA">
+	    <div class="box5">
+	      <p id="result"></p>
+
+	      <table>
+		<tbody>
+
+		    <tr><td>
+			Dia. (mm) &nbsp; &nbsp;
+		    </td><td>
+			Type &nbsp; &nbsp;
+		    </td><td>
+			Qe (kN) &nbsp; &nbsp;
+		    </td><td>
+			Qf (kN) &nbsp; &nbsp;
+		    </td><td>
+			Wp (kN) &nbsp; &nbsp;
+		    </td><td>
+			Qu (kN) &nbsp; &nbsp;
+		    </td><td>
+			Qa (kN) &nbsp; &nbsp;
+		    </td><td>
+			Qf/Qu x 100 %
+		    </td></tr>
+
+		    <tr><td>
+			<input type="text" value="220" id="Dia1" onChange="OnButtonClick();">
+		    </td><td>
+			<select id="type1" onChange="OnButtonClick();">
+			    <option>SQ.</option>
+			    <option>Round.</option>
+			</select>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		    </td><td id="Qe1">
+		    </td><td id="Qf1">
+		    </td><td id="Wp1">
+		    </td><td id="Qu1">
+		      </td><td id="Qa1">
+		      </td><td id="Ratio1">
+		    </td></tr>
+
+		    <tr><td>
+			<input type="text" value="260" id="Dia2" onChange="OnButtonClick();">
+		    </td><td>
+			<select id="type2" onChange="OnButtonClick();">
+			    <option>SQ.</option>
+			    <option>Round.</option>
+			</select>
+		    </td><td id="Qe2">
+		    </td><td id="Qf2">
+		    </td><td id="Wp2">
+		    </td><td id="Qu2">
+		      </td><td id="Qa2">
+		      </td><td id="Ratio2">
+		    </td></tr>
+
+
+		    <tr><td>
+			<input type="text" value="300" id="Dia3" onChange="OnButtonClick();">
+		    </td><td>
+			<select id="type3" onChange="OnButtonClick();">
+			    <option>SQ.</option>
+			    <option>Round.</option>
+			</select>
+		    </td><td id="Qe3">
+		    </td><td id="Qf3">
+		    </td><td id="Wp3">
+		    </td><td id="Qu3">
+		    </td><td id="Qa3">
+		      </td><td id="Ratio3">
+		    </td></tr>
+
+		    <tr><td>
+			<input type="text" value="350" id="Dia4" onChange="OnButtonClick();">
+		    </td><td>
+			<select id="type4" onChange="OnButtonClick();">
+			    <option>SQ.</option>
+			    <option>Round.</option>
+			</select>
+		    </td><td id="Qe4">
+		    </td><td id="Qf4">
+		    </td><td id="Wp4">
+		    </td><td id="Qu4">
+		      </td><td id="Qa4">
+		      </td><td id="Ratio4">
+		    </td></tr>
+
+		    <tr><td>
+			<input type="text" value="400" id="Dia5" onChange="OnButtonClick();">
+		    </td><td>
+			<select id="type5" onChange="OnButtonClick();">
+			    <option>SQ.</option>
+			    <option>Round.</option>
+			</select>
+		    </td><td id="Qe5">
+		    </td><td id="Qf5">
+		      </td><td id="Wp5">
+		    </td><td id="Qu5">
+		      </td><td id="Qa5">
+		      </td><td id="Ratio5">
+		    </td></tr>
+
+		    <tr><td>
+			<input type="text" value="250" id="Dia6" onChange="OnButtonClick();">
+		      </td><td>
+			<select id="type6" onChange="OnButtonClick();">
+			  <option>SQ.</option>
+			  <option selected>Round.</option>
+			</select>
+		      </td><td id="Qe6">
+		      </td><td id="Qf6">
+		      </td><td id="Wp6">
+		      </td><td id="Qu6">
+		      </td><td id="Qa6">
+		      </td><td id="Ratio6">
+		    </td></tr>
+
+		    <tr><td>
+			<input type="text" value="300" id="Dia7" onChange="OnButtonClick();">
+		      </td><td>
+			<select id="type7" onChange="OnButtonClick();">
+			  <option>SQ.</option>
+			  <option selected>Round.</option>
+			</select>
+		      </td><td id="Qe7">
+		      </td><td id="Qf7">
+		      </td><td id="Wp7">
+		      </td><td id="Qu7">
+		      </td><td id="Qa7">
+		      </td><td id="Ratio7">
+		    </td></tr>
+
+		    <tr><td>
+			<input type="text" value="350" id="Dia8" onChange="OnButtonClick();">
+		      </td><td>
+			<select id="type8" onChange="OnButtonClick();">
+			  <option>SQ.</option>
+			  <option selected>Round.</option>
+			</select>
+		      </td><td id="Qe8">
+		      </td><td id="Qf8">
+		      </td><td id="Wp8">
+		      </td><td id="Qu8">
+		      </td><td id="Qa8">
+		      </td><td id="Ratio8">
+		    </td></tr>
+
+		    <tr><td>
+			<input type="text" value="400" id="Dia9" onChange="OnButtonClick();">
+		      </td><td>
+			<select id="type9" onChange="OnButtonClick();">
+			  <option>SQ.</option>
+			  <option selected>Round.</option>
+			</select>
+		      </td><td id="Qe9">
+		      </td><td id="Qf9">
+		      </td><td id="Wp9">
+		      </td><td id="Qu9">
+		      </td><td id="Qa9">
+		      </td><td id="Ratio9">
+		    </td></tr>
+
+		    <tr><td>
+			<input type="text" value="450" id="Dia10" onChange="OnButtonClick();">
+		      </td><td>
+			<select id="type10" onChange="OnButtonClick();">
+			  <option>SQ.</option>
+			  <option selected>Round.</option>
+			</select>
+		      </td><td id="Qe10">
+		      </td><td id="Qf10">
+		      </td><td id="Wp10">
+		      </td><td id="Qu10">
+		      </td><td id="Qa10">
+		      </td><td id="Ratio10">
+		    </td></tr>
+
+		</tbody>
+	      </table>
+
+	    </div>
+	</div>
+
+    </body>
+
+</html>

@@ -1,0 +1,256 @@
+<!Doctype html>
+<html lang="en">
+
+    <head>
+
+	<meta charset="utf-8">
+	<title>PileBearThai</title>
+	<style>
+	</style>
+	<link rel="stylesheet" href="css/SlabOnGrade.css">
+	<script src="../../menu.js"></script>
+	<!--
+	     <script src="./myscript.js"></script>
+	   -->
+    </head>
+
+    <body>
+
+	<div class="boxA">
+
+	    <div class="box1" id = "a-box">
+
+		<p><h4> - Notation</h4></p>
+
+	    <table>
+		<tbody>
+		    <tr>
+			<td>
+			    Q<sub>u</sub> =
+			</td>
+			<td>
+			    Q<sub>e</sub> + Q<sub>f</sub> - w<sub>p</sub>
+			</td>
+			<td>
+			    Ultimate bearing capacity, kN
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			    Q<sub>a</sub> =
+			</td>
+			<td>
+			    Q<sub>e</sub>/SF<sub>e</sub> + Q<sub>f</sub>/SF<sub>f</sub> - w<sub>p</sub>
+			</td>
+			<td>
+			    Allowable bearing capacity, kN
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			    Q<sub>e</sub>=
+			</td>
+			<td>
+			    q<sub>e</sub>
+			    A<sub>p</sub>
+			</td>
+			<td>
+			    Bearing capacity for Pile tips, kN
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			    q<sub>e</sub> =
+			</td>
+			<td>
+			    240 x [ 15 + 0.5 ( N<sub>tip</sub> - 15 )]
+			    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</td>
+			<td>
+			    - For Sand
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			</td>
+			<td>
+			    9 C
+			</td>
+			<td>
+			    - For Clay
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			    Q<sub>f</sub>=
+			</td>
+			<td>
+			    &Sigma; f<sub>r</sub> L<sub>f</sub> &phi;
+			</td>
+			<td>
+			    Friction capacity for Pile tips, kN
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			    f<sub>r</sub>=
+			</td>
+			<td>
+			    K<sub>h</sub> q tan( 3/4 &Phi; );
+			</td>
+			<td>
+			    - For Sand
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			</td>
+			<td>
+			    C &alpha;
+			</td>
+			<td>
+			    - For Clay
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			    w<sub>p</sub>=
+			</td>
+			<td>
+			    A<sub>p</sub> x L x 24 kN/m<sup>3</sup>
+			</td>
+			<td>
+			    weight of pile, kN
+			</td>
+		    </tr>
+
+		</tbody>
+	    </table>
+
+	    &nbsp;
+	    <table><tbody>
+		<tr>
+		    <td>
+			N<sub>tip</sub>,
+			N<sub>f</sub>
+		    </td>
+		    <td>
+		    </td>
+		    <td>
+			SPT N-value for pile tips, friction,
+			-- ( N < 60, N<sub>f</sub> < 30 )
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+			A<sub>p</sub>, &phi;:
+		    </td>
+		    <td>
+		    </td>
+		    <td>
+			Area & perimeter of the pile, m<sup>2</sup>, m
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+			L;
+		    </td>
+		    <td>
+		    </td>
+		    <td>
+			Pile length, m
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+			L<sub>f</sub>
+		    </td>
+		    <td>
+		    </td>
+		    <td>
+			Considering pile length as friction for sand and clay, m
+		    </td>
+		</tr>
+
+		<tr>
+		    <td>
+			K:
+		    </td>
+		    <td>
+
+		    </td>
+		    <td>
+		      Ratio of horizontal to vertical earth pressure on side of pile
+		    </td>
+		</tr>
+
+
+		<tr>
+		    <td>
+			q:
+		    </td>
+		    <td>
+		    </td>
+		    <td>
+			Effective Overburden pressure, kN/m<sup>2</sup>
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+			&Phi;:
+		    </td>
+		    <td>
+			= 0.3 N + 27
+		    </td>
+		    <td>
+			Friction Angle, deg.
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+			C:
+		    </td>
+		    <td>
+			= 0.5 q<sub>u</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    </td>
+		    <td>
+			Cohesion, kN/m<sup>2</sup> (< 100 kN/m<sup>2</sup>)
+		    </td>
+		</tr>
+
+		<tr>
+		    <td>
+			q<sub>u</sub>;
+		    </td>
+		    <td>
+			= 12.5 N<sub>c</sub>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    </td>
+		    <td>
+			Undisturbed shear strength, kN/m<sup>2</sup> (< 200 kN/m<sup>2</sup>)
+		    </td>
+		</tr>
+
+		<tr>
+		  <td>
+		    &alpha;
+		  </td>
+		  <td>
+		  </td>
+		  <td>
+		    Reduction factor depending on cohesion								    </td>
+		</tr>
+
+	    </tbody></table>
+
+	      <p>
+		<img src="images/Fig.jpg" alt="Fig" width="400px" /><br  />
+	      </p>
+
+	    </div>
+	</div>
+
+    </body>
+
+</html>

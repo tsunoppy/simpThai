@@ -1,0 +1,173 @@
+<!Doctype html>
+<html lang="en">
+
+    <head>
+
+	<meta charset="utf-8">
+	<title>ProtrudingPile</title>
+	<style>
+	</style>
+	<link rel="stylesheet" href="css/SlabOnGrade.css">
+	<script src="../../menu.js"></script>
+	<script src="./myscript.js"></script>
+
+    </head>
+
+    <body>
+
+	<div class="boxA">
+
+	    <div class="box1" id = "a-box">
+
+		<h1> <u>Pile Stress for the protruding pile by Chang Formula</u></h1>
+
+		<p>
+		    <h4>- Title;
+			&nbsp;&nbsp;
+			<input type="text" style="width:630px" id="job" >
+		    </h4>
+		</p>
+
+	    </div >
+
+	</div>
+
+
+	<div class="boxA">
+
+	    <p><h4> - Input</h4></p>
+
+	    <div class="box5" id="b-box">
+		<!--
+		     <input type="button" id="btn" value="EXE">/><br />
+		   -->
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td>
+				Characteristic cylinder strength of concrete, f<sub>cu</sub>:
+			    </td>
+			    <td>
+				<input type="text" id="fc" >
+				&nbsp;N/mm<sup>2</sup>
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Size of pile, Width or Dia.:
+			    </td>
+			    <td>
+				<form name ="TypeForm">
+				    <select name="TypeName" onCharge="function OnPrimeDia()">
+					<option>SQ.</option>
+					<option>Round.</option>
+				    </select>
+				</form>
+			    </td>
+			    <td>
+				External Dia. = <input type="text" id="bb" >
+				&nbsp;mm
+			    </td>
+			</tr>
+			<tr>
+			    <td>
+			    </td>
+			    <td>
+			    </td>
+			    <td>
+				Internal Dia. = <input type="text" id="bbInt" >
+				&nbsp;mm
+				(Input 0, for not hollow section)
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Modification factor to Inertia, &phi;:
+			    </td>
+			    <td>
+				<input type="text" id="phi" >
+				&nbsp; EI
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Boundary Condition :
+			    </td>
+			    <td>
+				<select id="Bound" onCharge="function OnPrimeDia()">
+				    <option>Fix at Top of Pile</option>
+				    <option>Pin at Top of Pile</option>
+				</select>
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Protruding length :
+			    </td>
+			    <td>
+				<input type="text" id="hhh" >
+				&nbsp;m
+			    </td>
+			</tr>
+
+		    </tbody>
+		</table>
+
+		<p><h4> - Soil Properties</h4></p>
+		<table>
+		    <tbody>
+			<tr>
+			    <td>
+				SPT-N-Value:
+			    </td>
+			    <td>
+				<input type="text" id="n" >
+				&nbsp;&nbsp;&nbsp;&nbsp;
+			    </td>
+			    <td>
+				<form name ="SoilForm">
+				    <select name="SoilName" onCharge="function OnPrimeDia()">
+					<option value="80">SAND</option>
+					<option value="60">CLAY</option>
+				    </select>
+				</form>
+			    </td>
+			    <td>
+				<input type="button" value="Exe" onclick="OnButtonClick();">
+			    </td>
+			</tr>
+
+		    </tbody>
+		</table>
+
+
+
+	    </div>
+	</div>
+
+	<div class="boxA">
+	    <div class="box4">
+		<!--
+		     <input type="button" value="EXE" onclick="OnButtonClick();">
+		   -->
+	    </div>
+	</div>
+
+
+	<div class="boxA">
+	    <div class="box3">
+		<p id="result"></p>
+	    </div>
+	    <div class="box2">
+		<p id="figure"></p>
+	    </div>
+	</div>
+
+    </body>
+
+</html>

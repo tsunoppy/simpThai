@@ -1,0 +1,345 @@
+<!Doctype html>
+<html lang="ja">
+
+    <head>
+
+	<meta charset="utf-8">
+	<title>pipeLattice</title>
+	<style>
+	</style>
+	<link rel="stylesheet" href="css/SteelTruss.css">
+	<script src="myscript.js"></script>
+	<script src="../../menu.js"></script>
+    </head>
+
+    <body>
+
+	<div class="boxA">
+
+	    <div class="box1" id= "a-box">
+
+		<h1> <u>Lattice Truss with Pipe Section </u></h1>
+		<p>
+		    <h4>- Title;
+			&nbsp;&nbsp;
+			<input type="text" style="width:580px" id="job" >
+		    </h4>
+		</p>
+	    </div >
+
+	</div>
+
+
+	<div class="boxA">
+
+	    <p><h4> - Input</h4></p>
+
+	    <div class="box4" id="picture">
+	    </div>
+	</div>
+
+	<!--
+	     <div class="box2">
+	     <p><img src="images/Document1.jpg" alt="Stress Location" width="300px" /><br  /></p>
+	     <script src="myscript.js"></script>
+	     </div>
+	   -->
+
+	<div class="boxA">
+
+	    <div class="box4" id="b-box">
+
+		<table>
+		    <tbody>
+
+			<tr>
+
+			    <td>
+				Span, L:
+			    </td>
+			    <td>
+				<input type="text" id="span" onChange="DrawSec();">
+				&nbsp;m, &nbsp;&nbsp;
+			    </td>
+
+			    <td>
+				Depth, D<sub>p</sub>:
+			    </td>
+			    <td>
+				<input type="text" id="dp" onChange="DrawSec();">
+				&nbsp;mm, &nbsp;&nbsp;
+			    </td>
+
+			    <td>
+				W/&nbsp;
+			    </td>
+			    <td>
+				<form name="BounForm">
+				    <select name="BounName" onCharge="function OnPrimeDia()">
+					<option value="fix">Fix</option>
+					<option value="pin">Pin</option>
+				    </select>
+				</form>
+			    </td>
+			</tr>
+
+		    </tbody>
+		</table>
+
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td>
+				Number W/Point Loading, N,P:
+			    </td>
+			    <td>
+				<input type="text" id="number" onChange="DrawSec();">
+				&nbsp;x
+				<input type="text" id="pv" >
+				&nbsp;kN &nbsp;&nbsp;
+			    </td>
+			    <td>
+				<input type="text" style="text-align: left; width:300px;" id="loadMemo" >
+			    </td>
+			</tr>
+
+		    </tbody>
+		</table>
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td>
+				Chord:&nbsp;
+			    </td>
+
+			    <td>
+				Top/ &nbsp;
+			    </td>
+			    <td>
+				<select id="TopChord" onChange="DrawSec();">
+				    <option value="p-48.6x2.3">p-48.6x2.3</option>
+				    <option value="p-48.6x3.2">p-48.6x3.2</option>
+				    <option value="p-60.5x3.2">p-60.5x3.2</option>
+				    <option value="p-60.5x4.0">p-60.5x4.0</option>
+				    <option value="p-76.3x3.2">p-76.3x3.2</option>
+				    <option value="p-89.1x3.2">p-89.1x3.2</option>
+				    <option value="p-76.3x4.0">p-76.3x4.0</option>
+				    <option value="p-101.6x3.2">p-101.6x3.2</option>
+				    <option value="p-89.1x4.0">p-89.1x4.0</option>
+				    <option value="p-114.3x3.2">p-114.3x3.2</option>
+				    <option value="p-101.6x4.0">p-101.6x4.0</option>
+				    <option value="p-114.3x4.5">p-114.3x4.5</option>
+				    <option value="p-114.3x5.6">p-114.3x5.6</option>
+				    <option value="p-139.8x4.5">p-139.8x4.5</option>
+				    <option value="p-165.2x4.5">p-165.2x4.5</option>
+				    <option value="p-139.8x6.0">p-139.8x6.0</option>
+				    <option value="p-165.2x6.0">p-165.2x6.0</option>
+				    <option value="p-216.3x6.0">p-216.3x6.0</option>
+				    <option value="p-216.3x8.0">p-216.3x8.0</option>
+				</select>
+				&nbsp;
+			    </td>
+			    <td>
+				Bottom/ &nbsp;
+			    </td>
+			    <td>
+				<select id="BotomChord" onChange="DrawSec();">
+				    <option value="p-48.6x2.3">p-48.6x2.3</option>
+				    <option value="p-48.6x3.2">p-48.6x3.2</option>
+				    <option value="p-60.5x3.2">p-60.5x3.2</option>
+				    <option value="p-60.5x4.0">p-60.5x4.0</option>
+				    <option value="p-76.3x3.2">p-76.3x3.2</option>
+				    <option value="p-89.1x3.2">p-89.1x3.2</option>
+				    <option value="p-76.3x4.0">p-76.3x4.0</option>
+				    <option value="p-101.6x3.2">p-101.6x3.2</option>
+				    <option value="p-89.1x4.0">p-89.1x4.0</option>
+				    <option value="p-114.3x3.2">p-114.3x3.2</option>
+				    <option value="p-101.6x4.0">p-101.6x4.0</option>
+				    <option value="p-114.3x4.5">p-114.3x4.5</option>
+				    <option value="p-114.3x5.6">p-114.3x5.6</option>
+				    <option value="p-139.8x4.5">p-139.8x4.5</option>
+				    <option value="p-165.2x4.5">p-165.2x4.5</option>
+				    <option value="p-139.8x6.0">p-139.8x6.0</option>
+				    <option value="p-165.2x6.0">p-165.2x6.0</option>
+				    <option value="p-216.3x6.0">p-216.3x6.0</option>
+				    <option value="p-216.3x8.0">p-216.3x8.0</option>
+				</select>
+			    </td>
+			    <td>
+				&nbsp;&nbsp;W/Buckling, l<sub>c</sub>;
+			    </td>
+			    <td>
+				<input type="text" id="lcBot">
+				&nbsp;m
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Digonal: &nbsp;
+			    </td>
+			    <td>
+				Eadge/ &nbsp;
+			    </td>
+
+			    <td>
+				<select id="Dig1" onChange="DrawSec();">
+				    <option value="p-48.6x2.3">p-48.6x2.3</option>
+				    <option value="p-48.6x3.2">p-48.6x3.2</option>
+				    <option value="p-60.5x3.2">p-60.5x3.2</option>
+				    <option value="p-60.5x4.0">p-60.5x4.0</option>
+				    <option value="p-76.3x3.2">p-76.3x3.2</option>
+				    <option value="p-89.1x3.2">p-89.1x3.2</option>
+				    <option value="p-76.3x4.0">p-76.3x4.0</option>
+				    <option value="p-101.6x3.2">p-101.6x3.2</option>
+				    <option value="p-89.1x4.0">p-89.1x4.0</option>
+				    <option value="p-114.3x3.2">p-114.3x3.2</option>
+				    <option value="p-101.6x4.0">p-101.6x4.0</option>
+				    <option value="p-114.3x4.5">p-114.3x4.5</option>
+				    <option value="p-114.3x5.6">p-114.3x5.6</option>
+				    <option value="p-139.8x4.5">p-139.8x4.5</option>
+				    <option value="p-165.2x4.5">p-165.2x4.5</option>
+				    <option value="p-139.8x6.0">p-139.8x6.0</option>
+				    <option value="p-165.2x6.0">p-165.2x6.0</option>
+				    <option value="p-216.3x6.0">p-216.3x6.0</option>
+				    <option value="p-216.3x8.0">p-216.3x8.0</option>
+				</select>
+			    </td>
+
+			    <td>
+				Internal/ &nbsp;
+			    </td>
+			    <td>
+				<select id="Dig2" onChange="DrawSec();">
+				    <option value="p-48.6x2.3">p-48.6x2.3</option>
+				    <option value="p-48.6x3.2">p-48.6x3.2</option>
+				    <option value="p-60.5x3.2">p-60.5x3.2</option>
+				    <option value="p-60.5x4.0">p-60.5x4.0</option>
+				    <option value="p-76.3x3.2">p-76.3x3.2</option>
+				    <option value="p-89.1x3.2">p-89.1x3.2</option>
+				    <option value="p-76.3x4.0">p-76.3x4.0</option>
+				    <option value="p-101.6x3.2">p-101.6x3.2</option>
+				    <option value="p-89.1x4.0">p-89.1x4.0</option>
+				    <option value="p-114.3x3.2">p-114.3x3.2</option>
+				    <option value="p-101.6x4.0">p-101.6x4.0</option>
+				    <option value="p-114.3x4.5">p-114.3x4.5</option>
+				    <option value="p-114.3x5.6">p-114.3x5.6</option>
+				    <option value="p-139.8x4.5">p-139.8x4.5</option>
+				    <option value="p-165.2x4.5">p-165.2x4.5</option>
+				    <option value="p-139.8x6.0">p-139.8x6.0</option>
+				    <option value="p-165.2x6.0">p-165.2x6.0</option>
+				    <option value="p-216.3x6.0">p-216.3x6.0</option>
+				    <option value="p-216.3x8.0">p-216.3x8.0</option>
+				</select>
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Post: &nbsp;
+			    </td>
+			    <td>
+			    </td>
+
+			    <td>
+				<select id="Post" onChange="DrawSec();">
+				    <option value="p-48.6x2.3">p-48.6x2.3</option>
+				    <option value="p-48.6x3.2">p-48.6x3.2</option>
+				    <option value="p-60.5x3.2">p-60.5x3.2</option>
+				    <option value="p-60.5x4.0">p-60.5x4.0</option>
+				    <option value="p-76.3x3.2">p-76.3x3.2</option>
+				    <option value="p-89.1x3.2">p-89.1x3.2</option>
+				    <option value="p-76.3x4.0">p-76.3x4.0</option>
+				    <option value="p-101.6x3.2">p-101.6x3.2</option>
+				    <option value="p-89.1x4.0">p-89.1x4.0</option>
+				    <option value="p-114.3x3.2">p-114.3x3.2</option>
+				    <option value="p-101.6x4.0">p-101.6x4.0</option>
+				    <option value="p-114.3x4.5">p-114.3x4.5</option>
+				    <option value="p-114.3x5.6">p-114.3x5.6</option>
+				    <option value="p-139.8x4.5">p-139.8x4.5</option>
+				    <option value="p-165.2x4.5">p-165.2x4.5</option>
+				    <option value="p-139.8x6.0">p-139.8x6.0</option>
+				    <option value="p-165.2x6.0">p-165.2x6.0</option>
+				    <option value="p-216.3x6.0">p-216.3x6.0</option>
+				    <option value="p-216.3x8.0">p-216.3x8.0</option>
+				</select>
+			    </td>
+
+			    <td>
+				&nbsp; x &nbsp;
+				<input type="text" id="numPost" onChange="DrawSec();">
+			    </td>
+
+			    <td>
+				&nbsp;
+				<select id="Divide" onChange="DrawSec();">
+				    <option> Equally divided</option>
+				    <option> For Purlin </option>
+				</select>
+			    </td>
+
+			</tr>
+
+		    </tbody>
+		</table>
+
+
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td>
+				F<sub>Y</sub>:
+			    </td>
+			    <td>
+				<input type="text" id="fy" >
+				&nbsp;N/mm<sup>2</sup>, &nbsp;
+			    </td>
+
+			    <td>
+				Number of Digonal, n:
+			    </td>
+			    <td>
+				<input type="text" id="numMember" onChange="DrawSec();">
+			    </td>
+			    <td>
+				Grouping, m:
+			    </td>
+			    <td>
+				2 x
+				<input type="text" id="m" onChange="DrawSec();">
+				-
+			    </td>
+
+
+			</tr>
+
+			<tr>
+			    <td>
+				<input type="button" value="Exe" onclick="OnButtonClick();">
+			    </td>
+			</tr>
+
+
+		    </tbody>
+		</table>
+
+	    </div>
+	</div>
+
+	<div class="boxA">
+	    <div class="box5">
+		<p id="result"></p>
+	    </div>
+	</div>
+
+	<div class="boxA">
+	    <div id="Insert" class="box5">
+	    </div>
+	</div>
+
+    </body>
+
+</html>

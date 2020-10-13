@@ -1,0 +1,357 @@
+<!Doctype html>
+<html lang="ja">
+
+    <head>
+
+	<meta charset="utf-8">
+	<title>direct</title>
+	<style>
+	</style>
+	<link rel="stylesheet" href="direct.css">
+	<script src="direct.js"></script>
+	<script src="../../menu.js"></script>
+    </head>
+
+    <body>
+
+
+	<div class="boxA">
+
+	    <div class="box1" id = "a-box">
+
+		<h1> <u>Shallow Foundation</u></h1>
+
+		<p>
+		    <h3>&nbsp;Title;
+			&nbsp;&nbsp;
+			<input type="text" style="width:630px" id="job" >
+		    </h3>
+		</p>
+		<p>
+		    <h3>&nbsp;Input</h3>
+		</p>
+
+	    </div >
+	</div>
+
+
+
+	<form name="inputform" >
+
+	    <div class="boxA">
+		<div class="box2" >
+
+		    <tr><td><b>
+			&nbsp; - Loading;
+		    </b></td></tr>
+
+		    <table>
+			<tbody>
+
+			    <tr>
+				<td>
+				    N<sub>u</sub>=
+				</td>
+				<td>
+				    <input type="text" id="nux" >
+				    &nbsp;kN, &nbsp;&nbsp;
+				</td>
+
+				<td>
+				    M<sub>ux</sub>=
+				</td>
+				<td>
+				    <input type="text" id="mux" >
+				    &nbsp;kN.m
+				</td>
+			    </tr>
+
+			    <tr>
+				<td>
+				    N<sub>u</sub>=
+				</td>
+				<td>
+				    <input type="text" id="nuy" >
+				    &nbsp;kN, &nbsp;&nbsp;
+				</td>
+				<td>
+				    M<sub>uy</sub>=
+				</td>
+				<td>
+				    <input type="text" id="muy" >
+				    &nbsp;kN.m
+				</td>
+			    </tr>
+
+			    <!--
+				 <tr>
+				 <td>
+				 φ =
+				 </td>
+				 <td>
+				 <input type="text" id="phi" >
+				 &nbsp;
+				 </td>
+				 <td></td>
+				 <td></td>
+				 <td>No Use</td>
+				 </tr>
+			       -->
+			</tbody>
+		    </table>
+
+		    <tr><td><b>
+			&nbsp;- Material Property;
+		    </b></td></tr>
+
+		    <table>
+			<tbody>
+
+			    <tr>
+				<td>
+				    Concrete, fc:
+				</td>
+				<td>
+				    <input type="text" id="fc">
+				    &nbsp;N/mm<sup>2</sup>,
+				    &nbsp;
+				</td>
+			    </tr>
+			    <tr>
+				<td>
+				    Reinforcement, fy:
+				</td>
+				<td>
+				    <input type="text" id="fy">
+				    &nbsp;N/mm<sup>2</sup>,
+				    &nbsp;
+				</td>
+
+			    </tr>
+			    <tr>
+
+				<td>
+				    Density of Soil, &gamma;:
+				</td>
+
+				<td>
+				    <input type="text" id="gamma">
+				    &nbsp;kN/m<sup>2</sup>
+				</td>
+
+			    </tr>
+			    <tr>
+				<td>
+				    -Ave. Including Footing
+				</td>
+			    </tr>
+
+			</tbody>
+		    </table>
+
+		</div>
+		<div class="box3" >
+
+		    <tr><td><b>
+			- Footing Shape;
+		    </b></td></tr>
+
+		    <table>
+			<tbody>
+
+			    <tr>
+				<td>
+				    Lx =
+				    <input type="text" id="lx" onChange="changeFooting(), DrawSec();"> mm,
+				</td>
+				<td>
+				    Ly =
+				    <input type="text" id="ly" onChange="changeFooting(), DrawSec();"> mm,
+				</td>
+				<td>
+				    Df =
+				    <input type="text" id="df" onChange="DrawSec();"> mm
+				</td>
+
+			    </tr>
+
+			    <tr>
+
+				<td>
+				    t =
+				    <input type="text" id="d1" onChange="DrawSec();">
+				    &nbsp;mm, &nbsp;
+				</td>
+
+				<td>
+				    t1 =
+				    <input type="text" id="d2" onChange="DrawSec();">
+				    &nbsp;mm, &nbsp;
+				</td>
+
+				<td>
+				    covering =
+				    <input type="text" id="cover" onChange="DrawSec();">
+				    &nbsp;mm, &nbsp;
+				</td>
+
+			    </tr>
+
+			</tbody>
+		    </table>
+
+
+		    <tr><td><b>
+			- Column Size;
+		    </b></td></tr>
+
+
+		    <table>
+			<tbody>
+
+			    <tr>
+
+				<td>
+				    cx =
+				    <input type="text" id="cx" onChange="DrawSec();">
+				    &nbsp;mm, &nbsp;
+				</td>
+
+				<td>
+				    cy =
+				    <input type="text" id="cy" onChange="DrawSec();">
+				    &nbsp;mm, &nbsp;
+				</td>
+
+			    </tr>
+			    <tr>
+
+				<td>
+				    Lx1 =
+				    <input type="text" id="lx1" onChange="DrawSec();">
+				    &nbsp;mm, &nbsp;
+				</td>
+
+				<td>
+				    Ly1 =
+				    <input type="text" id="ly1" onChange="DrawSec();">
+				    &nbsp;mm, &nbsp;
+				</td>
+
+			    </tr>
+
+			</tbody>
+		    </table>
+
+		    <tr><td><b>
+			- Reinforcement;
+		    </b></td></tr>
+
+		    <table>
+			<tbody>
+
+			    <tr>
+				<td>
+				    X Dir.&nbsp;
+				    <input type="text" id="numX" onChange="DrawSec();">
+				    - &nbsp;
+				</td>
+
+				<td>
+				    <select id="rebarX" onChange="DrawSec();">
+					<option>DB12</option>
+					<option>DB16</option>
+					<option>DB20</option>
+					<option>DB25</option>
+					<option>DB28</option>
+					<option>DB32</option>
+				    </select>
+				    &nbsp;&nbsp;&nbsp;
+				</td>
+
+				<td>
+				    Y Dir.&nbsp;
+				    <input type="text" id="numY" onChange="DrawSec();">
+				    - &nbsp;
+				</td>
+
+				<td>
+				    <select id="rebarY" onChange="DrawSec();">
+					<option>DB12</option>
+					<option>DB16</option>
+					<option>DB20</option>
+					<option>DB25</option>
+					<option>DB28</option>
+					<option>DB32</option>
+				    </select>&nbsp;
+				</td>
+			    </tr>
+			</tbody>
+		    </table>
+
+		    <tr><td><b>
+			- Soil Bearing Capacity;
+		    </b></td></tr>
+
+		    <table>
+			<tbody>
+
+			    <tr>
+				<td>
+				    <input type="text" id="beaCap" >
+				</td>
+
+				<td>
+				    kN/m<sup>2</sup>
+				</td>
+			    </tr>
+			</tbody>
+		    </table>
+
+		    <p style="text-align:right">
+			<br>
+			<input type="button" value="Draw" onclick="DrawSec();">
+			<input type="button" value="Reset" onclick="Reset();">
+			<input type="button" value="EXE" onclick="OnButtonClick();">
+		    </p>
+		</div>
+	    </div>
+
+	</form>
+
+
+
+	<div class="boxA">
+	    <div class="box4">
+		<!--
+		     <input type="button" value="EXE" onclick="OnButtonClick();">
+		   -->
+	    </div>
+	</div>
+
+
+	<div class="boxA">
+	    <div class="box2">
+		<p id="resultX"></p>
+	    </div>
+	    <div class="box3">
+		<p id="resultY"></p>
+	    </div>
+	</div>
+
+	<div class="boxA">
+	    <div class="box5">
+
+		<p id="picture">
+		</p>
+		<hr>
+		<p id="addRebar" align="center"></p>
+		<hr>
+		<h2> - Footing Plan & Section -</h2>
+		<hr>
+	    </div>
+	</div>
+
+    </body>
+
+</html>

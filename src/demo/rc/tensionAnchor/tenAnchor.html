@@ -1,0 +1,374 @@
+<!Doctype html>
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+    <title>tensionAnchor</title>
+    <!--
+	 <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+       -->
+    <style>
+    </style>
+    <link rel="stylesheet" href="tenAnchor.css">
+    <script src="tenAnchor.js"></script>
+    <script src="../../menu.js"></script>
+  </head>
+
+  <body>
+
+
+      <div class="boxA">
+
+	  <div class="box1" id = "a-box">
+
+
+	      <h1> <u>Tension strength in compression for J & L Bolts </u></h1>
+
+	      <!--
+		   <table>
+		   <tr>
+		   <td>Reference:&nbsp</td>
+		   <td>
+		   <a href="images/15_Brackets_Corbel.pdf">
+		   15 Brackets, Corbels and Beam Ledges
+		   </a><br  />
+		   </td>
+		   </tr>
+		   </table>
+		 -->
+
+	      <p Align="right">
+		  Coded BY KDA/BKK, 03/2017
+		  </a>
+	      </p>
+
+	      <p>
+		  <h4>- Title;
+		      &nbsp;&nbsp;
+		      <input type="text" style="width:630px" id="job" >
+		  </h4>
+	      </p>
+
+	  </div >
+
+      </div>
+
+
+      <form name="inputform" >
+
+	  <div class="boxA">
+
+	      <p><h4> - Input</h4></p>
+
+
+	      <!-- canvas -->
+	      <!--
+		   <div class="box2" id="picture">
+		 -->
+	      <div class="box2">
+		  <!--
+		  <p>
+		      <img src="images/Image.jpg" alt="Stress Location" width="150px" /><br  />
+		  </p>
+		  -->
+
+		  <p id="picture"></p>
+
+
+	      </div>
+
+	      <div class="box3" id="b-box">
+		  <!--
+		       <input type="button" id="btn" value="EXE">/><br />
+		     -->
+
+
+		  <tr><td><b>
+		      - Loading;
+		  </b></td></tr>
+
+		  <table>
+		      <tbody>
+
+			  <tr>
+			      <td>
+				  Factored Tension Force, N<sub>u</sub>:
+			      </td>
+			      <td>
+				  <input type="text" id="nu" >
+				  &nbsp;kN
+			      </td>
+			  </tr>
+
+			  <!--
+			       <tr>
+			       <td>
+			       Factored horizontal tensile force, N<sub>uc</sub>:
+			       </td>
+			       <td>
+			       <input type="text" id="vnuc" value="0">
+			       &nbsp;kN
+			       </td>
+			       </tr>
+			     -->
+
+			  <tr>
+			      <td>
+				  Strength reduction factor, φ:
+			      </td>
+			      <td>
+				  <input type="text" id="phi" >
+				  &nbsp;-
+			      </td>
+			  </tr>
+
+		      </tbody>
+		  </table>
+
+		  <tr><td><b>
+		      - Material Property;
+		  </b></td></tr>
+
+		  <table>
+		      <tbody>
+
+
+			  <tr>
+			      <td>
+				  Compressive Concrete Strength, fc:
+			      </td>
+			      <td>
+				  <input type="text" id="fc">
+				  &nbsp;N/mm<sup>2</sup>
+			      </td>
+			  </tr>
+
+			  <!--
+			       <tr>
+			       <td>
+			       Tensile strength (No Use), fy:
+			       </td>
+			       <td>
+			       <input type="text" id="fy" value="236">
+			       &nbsp;N/mm<sup>2</sup>
+			       </td>
+			       </tr>
+			     -->
+
+		      </tbody>
+		  </table>
+
+		  <tr><td><b>
+		      - Anchor;
+		  </b></td></tr>
+
+		  <table>
+		      <tbody>
+
+			  <tr>
+			      <td>
+				  Dia. of Anchor, d<sub>a</sub>:
+			      </td>
+			      <td>
+				  <form name ="anchor">
+				      <select name="da" onCharge="function OnPrimeDia()">
+					  <option value="20">M16</option>
+					  <option value="20">M20</option>
+					  <option value="22">M22</option>
+					  <option value="24">M24</option>
+					  <option value="28">M28</option>
+					  <option value="32">M36</option>
+					  <option value="32">M48</option>
+				      </select>
+				  </form>
+			      </td>
+			  </tr>
+
+			  <tr>
+			      <td>
+				  Anchor Length, h<sub>ef</sub>:
+			      </td>
+			      <td>
+				  <input type="text" id="hef" >
+				  &nbsp;mm ( h<sub>ef</sub> &lt 8 d<sub>a</sub> needed )
+			      </td>
+			  </tr>
+
+			  <tr>
+			      <td>
+				  e<sub>h</sub>:
+			      </td>
+			      <td>
+				  <input type="text" id="eh" >
+				  &nbsp;mm ( e<sub>h</sub> &lt 8 d<sub>a</sub> needed )
+			      </td>
+			  </tr>
+
+			  <tr>
+			      <td>
+				  Number of Anchor, n<sub>a</sub> x m<sub>a</sub>:
+			      </td>
+			      <td>
+				  <input type="text" id="na" >
+				  &nbsp;x&nbsp;
+				  <input type="text" id="ma" >
+			      </td>
+			  </tr>
+
+		      </tbody>
+		  </table>
+
+
+		  <tr><td><b>
+		      - Size;
+		  </b></td></tr>
+
+
+		  <table>
+		      <tbody>
+
+			  <tr>
+			      <td>
+				  C<sub>a1</sub>=
+			      </td>
+			      <td>
+				  <input type="text" id="ca1" >
+				  &nbsp;mm
+			      </td>
+
+			      <td>
+				  &nbsp;&nbsp;&nbsp;C<sub>a2</sub>=
+			      </td>
+			      <td>
+				  <input type="text" id="ca2" >
+				  &nbsp;mm
+			      </td>
+
+			  </tr>
+			  <tr>
+			      <td>
+				  C<sub>a3</sub>=
+			      </td>
+			      <td>
+				  <input type="text" id="ca3" >
+				  &nbsp;mm
+			      </td>
+
+			      <td>
+				  &nbsp;&nbsp;&nbsp;C<sub>a4</sub>=
+			      </td>
+			      <td>
+				  <input type="text" id="ca4" >
+				  &nbsp;mm
+			      </td>
+
+			  </tr>
+
+		      </tbody>
+		  </table>
+
+		  <table>
+		      <tbody>
+
+			  <tr>
+			      <td>
+				  Spacing  ( n<sub>a</sub> &ge; 2 neeeded ), s<sub>n</sub>:
+			      </td>
+			      <td>
+				  <input type="text" id="s" >
+				  &nbsp;mm
+			      </td>
+			  </tr>
+
+			  <tr>
+			      <td>
+				  Spacing  ( m<sub>a</sub> &ge; 2 neeeded ), s<sub>m</sub>:
+			      </td>
+			      <td>
+				  <input type="text" id="sm" >
+				  &nbsp;mm
+			      </td>
+			  </tr>
+
+			  <tr>
+			      <td>
+				  Thickness ( &le; 1.5 C<sub>a1</sub> Needed ), h<sub>a</sub>:
+			      </td>
+			      <td>
+				  <input type="text" id="ha" >
+				  &nbsp;mm
+			      </td>
+			  </tr>
+
+			  <tr>
+			      <td>
+				  Distance of eccentricity, e<sub>v</sub>:
+			      </td>
+			      <td>
+				  <input type="text" id="ev" >
+				  &nbsp;mm
+			      </td>
+			  </tr>
+
+			  <tr>
+			      <td>
+				  Modification factor, &psi;<sub>c,N</sub>:
+			      </td>
+			      <td>
+
+				  <select name="psicn" width="100px" onChange="ModByRF(this.form);">
+				      <option value="1.25">1.25 no crack</option>
+				      <option value="1.00">1.00 cracked</option>
+				  </select>
+
+			      </td>
+			  </tr>
+
+
+		      </tbody>
+		  </table>
+
+		  <p id="addMod"></p>
+
+		  <p style="text-align:right">
+		      <br>
+		      <input type="button" value="Draw" onclick="DrawSec(this.form);">
+		      <input type="button" value="EXE" onclick="OnButtonClick();">
+		  </p>
+
+	      </div>
+	  </div>
+
+      </form>
+
+
+      <div class="boxA">
+	<div class="box4">
+	    <!--
+		 <input type="button" value="EXE" onclick="OnButtonClick();">
+	       -->
+	</div>
+    </div>
+
+
+    <div class="boxA">
+      <div class="box5">
+	<table>
+	  <tbody>
+	    <tr>
+	      <td>
+		<!--
+		Effective Depth "d" assumed to be 0.9 x h
+		-->
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+	<p id="result"></p>
+      </div>
+    </div>
+
+  </body>
+
+</html>

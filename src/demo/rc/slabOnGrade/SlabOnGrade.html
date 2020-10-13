@@ -1,0 +1,190 @@
+<!Doctype html>
+<html lang="ja">
+
+    <head>
+
+	<meta charset="utf-8">
+	<title>slabOnGrade</title>
+
+	<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+
+	<style>
+	</style>
+	<link rel="stylesheet" href="css/SlabOnGrade.css">
+	<script src="../../menu.js"></script>
+    </head>
+
+    <body>
+
+	<div class="boxA">
+	    <div class="box1" id = "a-box">
+		<h1> Concrete Slab on Grade Thickness Analysis </h1>
+	    </div >
+	</div>
+
+	<p><h4> - Input</h4></p>
+	<table>
+	    <tbody>
+		<tr>
+		    <td>
+			Title;
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;
+		    </td>
+		    <td>
+			　　　　　　　
+		    </td>
+		    <td>
+			<input type="text" style="width:400px" id="job" >
+		    </td>
+		</tr>
+	    </tbody>
+	</table>
+
+
+	<div class="boxA">
+	    <div class="box2" id="b-box">
+		<table>
+		    <tbody>
+		    </tr>
+		    <tr>
+			<td>
+			    Point Load, P:
+			</td>
+			<td>
+			    <input type="text" id="pp" >
+			    &nbsp;kN
+			</td>
+			<td>
+			    <a href="images/LiftTruck.pdf" target="_blank">Ref</a><br  />
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			    Slab Thickness, h:
+			</td>
+			<td>
+			    <input type="text" id="h" >
+			    &nbsp;mm
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			    Compressive Strength, fc:
+			</td>
+			<td>
+			    <input type="text" id="fc" >
+			    &nbsp;N/mm<sup>2</sup>
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			    Poisson's Ratio; ν:
+			</td>
+			<td>
+			    <input type="text" id="nu" >
+			    &nbsp;-
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			    Modulus of Soil Reaction, K30:
+			</td>
+			<td>
+			    <input type="text" id="k30" >
+			    &nbsp;kg/cm<sup>3</sup>
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			    Increasing Factor of Inertia, φ:
+			</td>
+			<td>
+			    <input type="text" id="phi" >
+			    &nbsp;-
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			    Safety factor, FS:
+			</td>
+			<td>
+			    <input type="text" id="fs" >
+			    &nbsp;-
+			</td>
+			<td>
+			    <a href="images/Repetitions.jpg" target="_blank">Ref -- Stress Ratio = 1.0/FS</a><br  />
+			</td>
+
+		    </tr>
+
+		    </tbody>
+		</table>
+
+		<!-- Btn -->
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+<input type="button" id="btn" value="EXE" onclick="OnButtonClick();"/><br />
+
+	    </div>
+	</div>
+
+	<div class="boxA">
+            <div class="box3">
+		<script src="myscript.js"></script>
+		<p id="result"></p>
+	    </div>
+
+	    <div class="box4">
+	      	<!--
+		     <p><h4>Instruction for using Figure</h4></p>
+		     <ul>
+		     <li>
+		     Enter chart with slab stress
+		     </li>
+		     <li>
+		     Move to right to eff. contact area
+		     </li>
+		     <li>
+		     Move up/down to wheel spacing
+		     </li>
+		     <li>
+		     Move to right to subgrade modulus
+		     </li>
+		     <li>
+		     Read required slab thickness,t
+		     </li>
+		     </ul>
+		     Result
+		   -->
+
+	    </div>
+
+	</div>
+
+	<div class="boxA">
+	    <div class="box5">
+		<!--
+		     <p id="graph"></p>
+		     <input type="button" value="TO.SI.UNIT" onclick="OnButtonClick();"/><br />
+		     <br />
+		     <p id="output"></p>
+
+
+		     \[
+		     \frac{\pi}{2} =
+		     \left( \int_{0}^{\infty} \frac{\sin x}{\sqrt{x}} dx \right)^2 =
+		     \sum_{k=0}^{\infty} \frac{(2k)!}{2^{2k}(k!)^2} \frac{1}{2k+1} =
+		     \prod_{k=1}^{\infty} \frac{4k^2}{4k^2 - 1}
+		     \]
+
+		   -->
+	    </div>
+	</div>
+
+
+
+    </body>
+
+</html>

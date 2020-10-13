@@ -1,0 +1,20 @@
+{
+    "name": "simpthai",
+    "version": "1.0.0",
+    "main": "index.html",
+    "window": {
+	"title": "simpthai",
+	"icon": "image/icon.png",
+	"toolbar": true,
+	"show_in_taskbar": true,
+	"show": true,
+	"width": 720,
+	"min_width": 720,
+	"max_width": 720,
+	"min_height": 600,
+	"position": "center"
+    },
+    "webkit":{
+	"plugin": true
+    }
+}

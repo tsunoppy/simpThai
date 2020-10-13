@@ -1,0 +1,168 @@
+<!Doctype html>
+<html lang="en">
+
+    <head>
+
+	<meta charset="utf-8">
+	<title>SlenderCol</title>
+	<style>
+	</style>
+	<link rel="stylesheet" href="css/SlabOnGrade.css">
+	<script src="../../menu.js"></script>
+    </head>
+
+    <body>
+
+	<div class="boxA">
+
+	    <div class="box1" id = "a-box">
+
+		<h1> <u> Slender Colun in Sway frames </u></h1>
+
+		<p>
+		    <h4>- Title;
+			&nbsp;&nbsp;
+			<input type="text" style="width:550px" id="job" value="JOB NAME">
+		    </h4>
+		</p>
+
+	    </div >
+
+	</div>
+
+
+	<div class="boxA">
+
+	    <p><h4> - Input</h4></p>
+	    <div class="box2">
+		<p><img src="images/Column.jpg" alt="Stress Location" width="200px" /><br  /></p>
+		<script src="myscript.js"></script>
+	    </div>
+
+	    <div class="box3" id="b-box">
+		<!--
+		     <input type="button" id="btn" value="EXE">/><br />
+		   -->
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td>
+				Factored sustained axial Force, P<sub>sus</sub>:
+			    </td>
+			    <td>
+				<input type="text" id="psus" >
+				&nbsp;kN
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Total factored axial force, P<sub>u</sub>:
+			    </td>
+			    <td>
+				<input type="text" id="pu" >
+				&nbsp;kN
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Column length, l<sub>u</sub>:
+			    </td>
+			    <td>
+				<input type="text" id="lu" >
+				&nbsp;mm
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				with Factor, k:
+			    </td>
+			    <td>
+				<input type="text" id="k" >
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Column Size: bw,h [mm]:
+			    </td>
+			    <td>
+				<input type="text" id="bw" >
+				&nbsp;
+				x&nbsp;
+				<input type="text" id="h" >
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Concrete Strength
+			    </td>
+			    <td>
+				<input type="text" id="fc" >
+				&nbsp;N/mm<sup>2</sup>
+			    </td>
+			</tr>
+
+
+			<tr>
+			    <td>
+				RF. Total area, Ast:
+			    </td>
+			    <td>
+				<input type="text" id="ast" >
+				&nbsp;mm<sup>2</sup>
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Total factored horizontal story shear, V<sub>sus</sub>:
+			    </td>
+			    <td>
+				<input type="text" id="vsus" >
+				&nbsp;kN
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Drift Angle due to V<sub>us</sub>/:
+			    </td>
+			    <td>
+				l<sub>u</sub> / <input type="text" id="dr" >
+				&nbsp;-
+			    </td>
+			</tr>
+
+
+			<tr><td>
+			    <input type="button" value="EXE" onclick="OnButtonClick();">
+			</td></tr>
+
+		    </tbody>
+		</table>
+
+	    </div>
+	</div>
+
+	<div class="boxA">
+	    <div class="box4">
+		<p>
+		</p>
+	    </div>
+	</div>
+
+
+	<div class="boxA">
+	    <div class="box5">
+		<p id="result"></p>
+	    </div>
+	</div>
+
+    </body>
+
+</html>

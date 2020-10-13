@@ -1,0 +1,432 @@
+<!Doctype html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <title>SimpBeam</title>
+    <style>
+    </style>
+    <link rel="stylesheet" href="simpBeam.css">
+    <script src="../../menu.js"></script>
+  </head>
+
+  <body>
+
+    <div class="boxA">
+
+      <div class="box1" id = "a-box">
+
+	<h1> <u> RC Beam </u></h1>
+
+	<p>
+	  <h4>- Title;
+	    &nbsp;&nbsp;
+	    <input type="text" style="width:630px" id="job" >
+	  </h4>
+	</p>
+
+      </div >
+
+    </div>
+
+
+    <div class="boxA">
+
+	<p><h4> - Input</h4></p>
+
+	<div class="box5" id="b-box">
+	    <!--
+		 <input type="button" id="btn" value="EXE">/><br />
+	       -->
+	    <table>
+		<tbody>
+
+		    <tr>
+			<td>
+			    Beam Size; bw x h:
+			</td>
+			<td>
+			    <input type="text" id="bw" onChange="Self();">
+			    &nbsp;mm x &nbsp;
+			    <input type="text" id="h" onChange="Self();">
+			    &nbsp;mm
+			</td>
+		    </tr>
+
+		    <!--
+		    <tr>
+			<td>
+			    Covering, Side, Top, Bot:
+			</td>
+			<td>
+			    <input type="text" id="coverSide" >
+			    &nbsp;mm
+			    <input type="text" id="coverTop" >
+			    &nbsp;mm
+			    <input type="text" id="coverBot" >
+			    &nbsp;mm
+			</td>
+		    </tr>
+		    -->
+
+		    <tr>
+			<td>
+			    Compressive Concrete Strength, fc:
+			</td>
+			<td>
+			    <input type="text" id="fc" >
+			    &nbsp;N/mm<sup>2</sup>
+			</td>
+		    </tr>
+
+		    <tr>
+			<td>
+			    Tensile strength for primary, fy:
+			</td>
+			<td>
+			    <input type="text" id="fy" >
+			    &nbsp;N/mm<sup>2</sup>
+			</td>
+		    </tr>
+
+		    <tr>
+			<td>
+			    Tnsile strength for ties, f<sub>yt</sub>:
+			</td>
+			<td>
+			    <input type="text" id="fyt" >
+			    &nbsp;N/mm<sup>2</sup>
+			</td>
+		    </tr>
+
+		</tbody>
+	    </table>
+
+
+	</div>
+    </div>
+
+
+    <div class="boxA">
+	<p><h4> - Model </h4></p>
+	<div class="box5">
+	    <table>
+		<tbody>
+		    <tr>
+			<td>
+			    span, L =
+			</td>
+			<td>
+			    <input type="text" id="span" >
+			</td>
+			<td>
+			    m,
+			    &nbsp;with&nbsp;
+			</td>
+			<td>
+			    <select id="Location">
+				<option>Single</option>
+				<option selected>Multiple Continuous</option>
+				<option>Two Span</option>
+			    </select>
+			    &nbsp;&nbsp;
+			</td>
+			<td>
+			    Load Combination:
+			</td>
+			<td>
+			    <input type="text" id="FacDL" > DL
+			    +
+			    <!--
+				 <input type="text" id="FacSDL" > SDL
+				 +
+			       -->
+			    <input type="text" id="FacLL" > LL
+			    &nbsp;
+			</td>
+		    </tr>
+		</tbody>
+	    </table>
+
+	</div>
+    </div>
+
+    <div class="boxA">
+	<p><h4> - Load Condition </h4></p>
+	<table><tbody>
+	    <tr>
+		<td>
+		    Load Num.:
+		</td>
+		<td>
+		    <input type="text" id="LoadNum" >
+		    <input type="button" value="Add" onclick="addLoad();">
+		    <input type="button" value="Remove" onclick="removeLoad();">
+		</td>
+		<td>
+		    <input type="button" value="Load Set" onclick="OnButtonClick();">
+		</td>
+	    </tr>
+	</tbody></table>
+
+	<table>
+	    <tbody>
+		<tr><td>
+		    Self Load;
+		</td>
+		<td>
+		    <input type="text" id="wSelf" >
+		</td>
+		<td>
+		    kN/m
+		</td></tr>
+	    </tbody>
+	</table>
+
+
+	<div class="box6">
+	    <table>
+		<tbody>
+		    <tr>
+			<td>
+			    No.1:
+			</td>
+			<td>
+			    <select id="type1" onChange="LoadCon('1','type1','Load001','Model001');">
+				<option>None</option>
+				<option selected>Uniform 01</option>
+				<option>Uniform 02</option>
+				<option>Uniform 03</option>
+				<option>Uniform 04</option>
+				<option>Uniform 05</option>
+				<option>Point Load 01</option>
+				<option>Point Load 02</option>
+			    </select>
+			</td>
+			<td>
+			    <select id="both1">
+				<option>Both Side</option>
+				<option>One Side</option>
+			    </select>
+			</td>
+		    </tr>
+		</tbody>
+	    </table>
+
+	    <table>
+		<tbody>
+		    <tr id="Load001">
+		    </tr>
+		</tbody>
+	    </table>
+
+	</div>
+
+	<div class="box7">
+	    <table>
+		<tbody>
+		    <tr>
+			<td id="Model001">
+			</td>
+		    </tr>
+		</tbody>
+	    </table>
+
+	</div>
+    </div>
+
+    <div class="boxA" id="2">
+    </div>
+    <div class="boxA" id="3">
+    </div>
+    <div class="boxA" id="4">
+    </div>
+    <div class="boxA" id="5">
+    </div>
+    <div class="boxA" id="6">
+    </div>
+    <div class="boxA" id="7">
+    </div>
+    <div class="boxA" id="8">
+    </div>
+    <div class="boxA" id="9">
+    </div>
+    <div class="boxA" id="10">
+    </div>
+    <div class="boxA" id="11">
+    </div>
+
+
+    <div class="boxA">
+	<div class="box5">
+	    <p id="result"></p>
+	</div>
+    </div>
+
+    <div class="boxA">
+	<div class="box5">
+	    <h4> - Shear </h4>
+	    <table>
+		<tbody>
+
+		    <tr>
+			<td>
+			    A<sub>v</sub> :
+			</td>
+			<td>
+			    <form name="ShearForm">
+				<select name="DiaShearName" >
+				    <option value="9" >RB9</option>
+				    <option value="10">DB10</option>
+				    <option value="12">DB12</option>
+				    <option value="16">DB16</option>
+				</select>
+			    </form>
+			</td>
+			<td>@</td>
+			<td>
+			    <input type="text" id="pitch" >
+			</td>
+
+			<td>
+			    , + Sub Str. :
+			</td>
+			<td>
+			    <input type="text" id="strNum">
+			</td>
+			<td>-</td>
+			<td>
+			    <form name ="ShearForm2">
+				<select name="DiaShearName2">
+				    <option value="9" >RB9</option>
+				    <option value="10">DB10</option>
+				    <option value="12">DB12</option>
+				    <option value="16">DB16</option>
+				</select>
+			    </form>
+			</td>
+			<td>
+			    @
+			    <input type="text" id="pitch2" >
+			</td>
+		    </tr>
+
+
+		</tbody>
+
+	    </table>
+
+	    <p id="shear"></p>
+	    <p id="result2"></p>
+	</div>
+    </div>
+
+
+    <div class="boxA">
+	<div class="box5">
+	    <h4> - Deflection Control</h4>
+	    <table>
+		<tbody>
+		    <tr>
+			<td>
+			    Load Combination:
+			</td>
+			<td>
+			    <input type="text" id="FacDL2" > DL
+			    +
+			    <!--
+				 <input type="text" id="FacSDL" > SDL
+				 +
+			       -->
+			    <input type="text" id="FacLL2" > LL
+			    &nbsp;
+			</td>
+			<td>
+			    <input type="button" value="Exe Def" onclick="DefCheck();">
+			</td>
+		    </tr>
+		</tbody>
+	    </table>
+
+	    <table>
+	      <tbody>
+
+		<tr>
+		  <td>
+		    Slab thickness, t =
+		  </td><td>
+		    <input type="text" id="thick" >
+		    mm &nbsp; with
+		  </td>
+		  <td>
+		    <select id="defBoth">
+		      <option>Both Side</option>
+		      <option>One Side</option>
+		      <option>None</option>
+		    </select>
+		  </td>
+		</tr>
+
+		<tr>
+		  <td>
+		    Clear span to next beam, a =
+		  </td><td>
+		    <input type="text" id="a0" >
+		    m
+		  </td>
+		</tr>
+
+	      </tbody>
+	    </table>
+
+	    <p id="def"></p>
+	</div>
+    </div>
+
+    <div class="boxA">
+	<p><h4> - Main RF.</h4></p>
+	<div class="box2">
+	    <p id="picture1"></p>
+	    <script src="myscript.js"></script>
+	</div>
+	<div class="box2">
+	    <p id="picture2"></p>
+	    <script src="myscript.js"></script>
+	</div>
+	<div class="box2">
+	    <p id="picture3"></p>
+	    <script src="myscript.js"></script>
+	</div>
+    </div>
+
+    <div class="boxA">
+	<div class="box2">
+	    <p id="picture4"></p>
+	    <script src="myscript.js"></script>
+	</div>
+	<div class="box2">
+	    <p id="picture5"></p>
+	    <script src="myscript.js"></script>
+	</div>
+    </div>
+
+
+    <div class="boxA">
+	<!--
+	     <div id="Insert" class="box5">
+	     </div>
+	   -->
+	<div class="box5">
+	    <p>
+		<textarea name="example" cols="70" rows="8"></textarea>
+	    </p>
+	    <p>
+		-- Memo
+	    </p>
+	</div>
+    </div>
+
+  </body>
+
+</html>

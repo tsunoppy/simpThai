@@ -1,0 +1,406 @@
+<!Doctype html>
+<html lang="ja">
+
+  <head>
+
+    <meta charset="utf-8">
+    <title>ptSlab</title>
+    <style>
+    </style>
+    <link rel="stylesheet" href="css/SlabOnGrade.css">
+    <script src="./myscript.js"></script>
+    <script src="../../menu.js"></script>
+  </head>
+
+  <body>
+
+    <div class="boxA">
+
+      <div class="box1" id = "a-box">
+
+	<h1> <u>Two-Way Post-Tensioned Design</u></h1>
+
+	<p>
+	  <h4>- Title;
+	    &nbsp;&nbsp;
+	      <input type="text" style="width:600px" id="job" >
+	  </h4>
+	</p>
+
+      </div >
+
+    </div>
+
+
+    <div class="boxA">
+
+
+      <div class="box5" id="b-box">
+
+	<p><h4> - General </h4></p>
+
+	<table>
+	    <tbody>
+
+		<tr>
+		    <td>
+			Concrete Strength f<sub>c</sub>:
+		    </td>
+		    <td>
+			<input type="text" id="fc" >
+			&nbsp;N/mm<sup>2</sup>,
+		    </td>
+		    <td>
+			&nbsp; Strength at time of initial pre-stress
+			f'<sub>ci</sub>:
+		    </td>
+		    <td>
+			<input type="text" id="fci" >
+			&nbsp;N/mm<sup>2</sup>,
+		    </td>
+		</tr>
+
+	    </tbody>
+	</table>
+
+	<table>
+	    <tbody>
+
+		<tr>
+		    <td>
+			Rebar, Tensile Yield Strength, f<sub>y</sub>:
+		    </td>
+		    <td>
+			<input type="text" id="fy" >
+			&nbsp;N/mm<sup>2</sup>
+		    </td>
+
+		    <td>
+			&nbsp; Reduction Factor, &phi;:
+		    </td>
+		    <td>
+			<input type="text" id="phi" >
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    </td>
+		</tr>
+
+	    </tbody>
+	</table>
+
+	<table>
+	    <tbody>
+
+		<tr>
+		    <td>
+			PT, Unbonded tendons :
+		    </td>
+		    <td>
+			Area =
+		    </td>
+		    <td>
+		    <input type="text" id="ptA" >
+		    &nbsp;mm<sup>2</sup>
+		    </td>
+		    <td>
+			<input type="text" style="width:200px" id="MemoTendon" >
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+			Tensile Strength
+		    </td>
+		    <td>
+			f<sub>pu</sub> =
+		    </td>
+		    <td>
+			<input type="text" id="fpu" >
+			&nbsp;N/mm<sup>2</sup>
+		    </td>
+		</tr>
+		<tr>
+		    <td>
+			Estimated prestress losses
+		    </td>
+		    <td>
+			=
+		    </td>
+		    <td>
+			<input type="text" id="floss" >
+			&nbsp;N/mm<sup>2</sup>
+		    </td>
+		    <tr>
+			<td>
+			    Effective stress:
+			</td>
+			<td>
+			    f<sub>se</sub> =
+			</td>
+			<td>
+			    <input type="text" id="fse" >
+			    &nbsp;N/mm<sup>2</sup>
+			</td>
+		    </tr>
+		    <tr>
+			<td>
+			    Effective Force:
+			</td>
+			<td>
+			    P<sub>eff</sub> =
+			</td>
+			<td>
+			    <input type="text" id="peff" >
+			    &nbsp;kN/tendon
+			</td>
+		    </tr>
+
+		    <tr>
+			<td>
+			    dt, Top & Bottom:
+			</td>
+			<td>
+			    dt =
+			</td>
+			<td>
+			    <input type="text" id="ptTop" >
+			    &nbsp;mm For Top, &nbsp;
+			    <input type="text" id="ptBot" >
+			    &nbsp;mm For Bottom, &nbsp;
+			</td>
+		    </tr>
+
+	    </tbody>
+	</table>
+
+	<p><h4> - Slab Condition </h4></p>
+	<table>
+	    <tbody>
+
+		<tr>
+		    <td>
+			Longer Span, l<sub>L</sub> :
+		    </td>
+		    <td>
+			<input type="text" id="ly" >
+			&nbsp;mm
+		    </td>
+
+		    <td> &nbsp; x &nbsp;</td>
+
+		    <td>
+			Shoter Span, l<sub>S</sub> :
+	      </td>
+	      <td>
+		<input type="text" id="lx" >
+		&nbsp;mm ( l<sub>L</sub> / l<sub>S</sub> &lt 3 with not 10% offset)
+	      </td>
+		</tr>
+
+	    </tbody>
+	</table>
+
+	<table>
+	    <tbody>
+
+	    <tr>
+	      <td>
+		Slab Thickness, t:
+	      </td>
+
+
+	      <td>
+		  <input type="text" id="t" >
+		  &nbsp;mm &nbsp;&nbsp;
+	      </td>
+
+
+	      <td>
+		  d<sub>t</sub> :
+	      </td>
+	      <td>
+		  <input type="text" id="dt" >
+		  &nbsp;mm
+	      </td>
+
+
+	      <td>
+		<form name="DropForm">
+		  <select name="DropName" onChange="OnDrop();">
+		    <option value="tu">with Drop Panel</option>
+		    <option value="fa">without Drop Panel</option>
+		  </select>
+		</form>
+	      </td>
+
+	      <td id="dropOut">
+		  <script>
+		   //window.onload = function() {
+		   //OnDrop()
+		   //}
+		   function OnDrop() {
+
+		       var idx = document.DropForm.DropName.selectedIndex;
+		       var result = "";
+
+		       switch (idx){
+ 			   case 0:
+
+			       //var ta = 150;
+			       result += '&nbsp;&nbsp;( ta = <input type="text" id="ta" value="150">';
+ 			       result += '&nbsp;mm )';
+			       document.getElementById('dropOut').innerHTML = result;
+			       break;
+
+			   case 1:
+			       result += '';
+			       document.getElementById('dropOut').innerHTML = result;
+
+  			       break;
+
+		       }
+
+		   }
+		  </script>
+	      </td>
+	    </tr>
+
+	  </tbody>
+	</table>
+
+	    <!--
+		Loading
+	      -->
+
+	<p><h4> - Loading </h4></p>
+
+	<table>
+	  <tbody>
+
+	      <tr><td>
+		  Dead Load.
+	      </td><td>
+		  Finish.
+	      </td><td>
+		  <input type="text" id="wp" >
+	      </td><td>
+	      </td><td>
+	      </td><td>
+	      </td><td>
+	      </td><td>
+	      </td><td id="wtl2">
+	      </td> </tr>
+
+	      <tr><td>
+	      </td><td>
+		  Slab.
+	      </td><td id="ws">
+		  -
+	      </td><td>
+		  &nbsp;&nbsp;&nbsp;&nbsp;
+		  g =
+	      </td><td id="g">
+	      </td><td>
+		  kN/m<sup>2</sup>
+	      </td><td>
+		  ,
+		  <input type="text" id="LRFg" >
+		  x g =
+	      </td><td id="gu">
+	      </td><td>
+		  kN/m<sup>2</sup>
+	      </td></tr>
+
+	      <tr><td>
+		  Live Load.
+	      </td><td>
+	      </td><td>
+		  <input type="text" id="wl" >
+	      </td><td>
+		  &nbsp;&nbsp;&nbsp;&nbsp;
+		  q =
+	      </td><td id="q">
+	      </td><td>
+		  kN/m<sup>2</sup>
+	      </td><td>
+		  ,
+		  <input type="text" id="LRFq" >
+		  x  q =
+	      </td><td id="qu">
+	      </td><td>
+		  kN/m<sup>2</sup>
+	      </td></tr>
+
+	      <tr><td>
+		  Post Tension
+	      </td><td>
+		  <input type="text" id="per" >
+		  x Slab =
+	      </td><td id="wpost">
+	      </td><td>
+		  &nbsp;&nbsp;&nbsp;&nbsp;
+		  p =
+	      </td><td id="p">
+	      </td><td>
+		  kN/m<sup>2</sup>
+	      </td><td>
+		  ,
+		  <input type="text" id="LRFpost" >
+		  x  q =
+	      </td><td id="pu">
+	      </td><td>
+		  kN/m<sup>2</sup>
+	      </td></tr>
+
+	    <tr><td>
+		Total Design Load.
+	    </td><td>
+	    </td><td>
+	    </td><td>
+	    </td><td>
+	    </td><td>
+	    </td><td>
+		&nbsp; &omega;<sub>u</sub> =
+	    </td><td id="wtl">
+	    </td><td>
+		kN/m<sup>2</sup>
+	      </td><td>
+		  <td>
+		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		      <input type="button" value="Load Set" onclick="OnLoadClick();">
+		      &nbsp;
+		      <input type="button" value="Exe" onclick="OnExeClick();">
+	      </td>
+	    </td></tr>
+
+	  </tbody>
+	</table>
+
+      </div>
+    </div>
+
+    <div class="boxA">
+	<div class="box5">
+	</div>
+    </div>
+
+
+    <div class="boxA">
+	<div class="box5">
+	    <p id="result"></p>
+	</div>
+    </div>
+
+    <div class="boxA">
+	<div class="box5">
+	    <p id="addResult"></p>
+	</div>
+    </div>
+
+    <div class="boxA">
+	<div id="Insert" class="box5">
+	</div>
+    </div>
+
+
+  </body>
+
+</html>

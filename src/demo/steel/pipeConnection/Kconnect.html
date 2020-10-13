@@ -1,0 +1,278 @@
+<!Doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>kJoint</title>
+    <style>
+    </style>
+    <link rel="stylesheet" href="css/connect.css">
+    <script src="kConnect.js"></script>
+    <script src="../../menu.js"></script>
+  </head>
+
+  <body>
+    <!--
+      ------------------------------------------------------------------------
+      -->
+    <div class="boxA">
+
+      <div class="box1" id = "a-box">
+
+	<h1>
+	  <u>Nominal Strength of Round HSS-toHSS Truss Connections</u>
+	</h1>
+
+	<table>
+	  <tr>
+	    <td>Reference:&nbsp</td>
+	    <td>
+		AISC Design Guide 24 - Hollow Structural Section Connection
+	      </a><br  />
+	    </td>
+	  </tr>
+	</table>
+
+	<p>
+	    <h4>- Title; &nbsp; &nbsp;
+		<input type="text" style="width:600px" id="job" >
+	    </h4>
+	</p>
+
+      </div >
+
+    </div>
+
+    <!--
+      ------------------------------------------------------------------------
+      -->
+
+
+    <div class="boxA">
+
+      <p><h4> - Input</h4></p>
+      <div class="box2">
+	<p><img src="images/Kconnection.jpg" alt="Stress Location" width="300px" />
+	</p>
+      </div>
+
+      <div class="box3" id="b-box">
+
+	<table>
+	  <tbody>
+
+	    <tr>
+	      <td>
+		Chord, D,t;&nbsp;
+	      </td>
+	      <td>
+		<select id="Chord" onCharge="OnButtonClick()">
+		  <option value="p-48.6x2.3">p-48.6x2.3</option>
+		  <option value="p-48.6x3.2">p-48.6x3.2</option>
+		  <option value="p-60.5x3.2">p-60.5x3.2</option>
+		  <option value="p-60.5x4.0">p-60.5x4.0</option>
+		  <option value="p-76.3x3.2">p-76.3x3.2</option>
+		  <option value="p-89.1x3.2">p-89.1x3.2</option>
+		  <option value="p-76.3x4.0">p-76.3x4.0</option>
+		  <option value="p-101.6x3.2">p-101.6x3.2</option>
+		  <option value="p-89.1x4.0">p-89.1x4.0</option>
+		  <option value="p-114.3x3.2">p-114.3x3.2</option>
+		  <option value="p-101.6x4.0">p-101.6x4.0</option>
+		  <option value="p-114.3x4.5">p-114.3x4.5</option>
+		  <option value="p-114.3x5.6">p-114.3x5.6</option>
+		  <option value="p-139.8x4.5">p-139.8x4.5</option>
+		  <option value="p-165.2x4.5">p-165.2x4.5</option>
+		  <option value="p-139.8x6.0">p-139.8x6.0</option>
+		  <option value="p-165.2x6.0">p-165.2x6.0</option>
+		  <option value="p-216.3x6.0">p-216.3x6.0</option>
+		  <option value="p-216.3x8.0">p-216.3x8.0</option>
+		</select>
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td style="width:180px">
+		Chord on side of joint with lower compression stress
+	      </td>
+	      <td>
+		&nbsp;&nbsp;&nbsp;
+		<input type="text" id="pr" style="width:40px" onChange="OnButtonClick()">
+		&nbsp;kN
+	      <td>
+	    </tr>
+
+	    <tr>
+	      <td>
+		D<sub>b comp</sub> ;&nbsp;
+	      </td>
+	      <td>
+		<select id="ddcomp" onCharge="OnButtonClick()">
+		  <option value="p-48.6x2.3">p-48.6x2.3</option>
+		  <option value="p-48.6x3.2">p-48.6x3.2</option>
+		  <option value="p-60.5x3.2">p-60.5x3.2</option>
+		  <option value="p-60.5x4.0">p-60.5x4.0</option>
+		  <option value="p-76.3x3.2">p-76.3x3.2</option>
+		  <option value="p-89.1x3.2">p-89.1x3.2</option>
+		  <option value="p-76.3x4.0">p-76.3x4.0</option>
+		  <option value="p-101.6x3.2">p-101.6x3.2</option>
+		  <option value="p-89.1x4.0">p-89.1x4.0</option>
+		  <option value="p-114.3x3.2">p-114.3x3.2</option>
+		  <option value="p-101.6x4.0">p-101.6x4.0</option>
+		  <option value="p-114.3x4.5">p-114.3x4.5</option>
+		  <option value="p-114.3x5.6">p-114.3x5.6</option>
+		  <option value="p-139.8x4.5">p-139.8x4.5</option>
+		  <option value="p-165.2x4.5">p-165.2x4.5</option>
+		  <option value="p-139.8x6.0">p-139.8x6.0</option>
+		  <option value="p-165.2x6.0">p-165.2x6.0</option>
+		  <option value="p-216.3x6.0">p-216.3x6.0</option>
+		  <option value="p-216.3x8.0">p-216.3x8.0</option>
+		</select>
+	      </td>
+	      <td>
+		<!--
+		    &nbsp;&nbsp;&nbsp;
+		    <input type="text" id="prcomp" value="160.0">
+		    &nbsp;kN
+		    -->
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td>
+		D<sub>b tens</sub> ;&nbsp;
+	      </td>
+	      <td>
+		<select id="ddtens" onCharge="OnButtonClick()">
+		  <option value="p-48.6x2.3">p-48.6x2.3</option>
+		  <option value="p-48.6x3.2">p-48.6x3.2</option>
+		  <option value="p-60.5x3.2">p-60.5x3.2</option>
+		  <option value="p-60.5x4.0">p-60.5x4.0</option>
+		  <option value="p-76.3x3.2">p-76.3x3.2</option>
+		  <option value="p-89.1x3.2">p-89.1x3.2</option>
+		  <option value="p-76.3x4.0">p-76.3x4.0</option>
+		  <option value="p-101.6x3.2">p-101.6x3.2</option>
+		  <option value="p-89.1x4.0">p-89.1x4.0</option>
+		  <option value="p-114.3x3.2">p-114.3x3.2</option>
+		  <option value="p-101.6x4.0">p-101.6x4.0</option>
+		  <option value="p-114.3x4.5">p-114.3x4.5</option>
+		  <option value="p-114.3x5.6">p-114.3x5.6</option>
+		  <option value="p-139.8x4.5">p-139.8x4.5</option>
+		  <option value="p-165.2x4.5">p-165.2x4.5</option>
+		  <option value="p-139.8x6.0">p-139.8x6.0</option>
+		  <option value="p-165.2x6.0">p-165.2x6.0</option>
+		  <option value="p-216.3x6.0">p-216.3x6.0</option>
+		  <option value="p-216.3x8.0">p-216.3x8.0</option>
+		</select>
+	      </td>
+	      <td>
+		<!--
+		    &nbsp;&nbsp;&nbsp;
+		    <input type="text" id="prtens" value="160.0">
+		    &nbsp;kN
+		    -->
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td style="width:180px">
+		Pu for Digonal,
+	      </td>
+	      <td>
+		&nbsp;&nbsp;&nbsp;
+		<input type="text" id="prcomp" style="width:40px" onChange="OnButtonClick()">
+		&nbsp;kN
+	      <td>
+	    </tr>
+
+	  </tbody>
+	</table>
+
+	<table>
+	  <tbody>
+
+	    <tr>
+	      <td>
+		F<sub>y</sub>;
+	      </td>
+	      <td>
+		<input type="text" id="fy" onchange="OnButtonClick()">
+		&nbsp;N/mm<sup>2</sup>
+	      </td>
+	    </tr>
+
+	    <tr>
+	      <td>
+		g;
+	      </td>
+	      <td>
+		<input type="text" id="gap" onChange="OnButtonClick()">
+		&nbsp;mm
+	      </td>
+	      <td>
+		&nbsp;&nbsp; Angle &theta;;
+	      </td>
+	      <td>
+		<input type="text" id="theta" onChange="OnButtonClick()">
+	      <td>
+	      </td>
+	      <td>
+		deg.
+	      </td>
+	    </tr>
+
+	  </tbody>
+	</table>
+
+	<table>
+	  <tbody>
+	    <tr>
+	      <td>
+		Design Method;
+	      </td>
+	      <td>
+		&nbsp;&nbsp;
+		<select id="method" onChange="OnButtonClick()">
+		  <option value="ASD">ASD</option>
+		  <option value="LRFD">LRFD</option>
+		</select>
+	      </td>
+	      <td>
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <input type="button" value="Exe" onclick="OnButtonClick();">
+	      </td>
+	    </tr>
+
+	  </tbody>
+	</table>
+
+      </div>
+
+    </div>
+
+    <!--
+      ------------------------------------------------------------------------
+      -->
+
+    <div class="boxA">
+      <div class="box4">
+	<p>
+	  </br>
+	</p>
+	<!--
+	    <input type="button" value="EXE" onclick="OnButtonClick();">
+	    -->
+      </div>
+    </div>
+
+    <!--
+      ------------------------------------------------------------------------
+      -->
+
+    <div class="boxA">
+      <div class="box5" id="result">
+      </div>
+    </div>
+
+  </body>
+
+</html>

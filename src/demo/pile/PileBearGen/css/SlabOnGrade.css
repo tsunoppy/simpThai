@@ -1,0 +1,132 @@
+body{
+    font-size: 12px;
+    margin: 0px auto;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+h1 {
+    width: 700px;
+    background-color: gray;
+    font-size: 20px;
+    color: snow;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    padding: 5px;
+}
+
+h2 {
+    width: 685px;
+    background-color: #E8E8E8;
+    font-size: 20px;
+    color: #0033CC;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+h4 {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    color: blue;
+}
+
+
+
+input[type="text"]{
+    padding: 2px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    width: 30px;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: right;
+}
+p {
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+}
+
+table {
+    margin-top: 5px;
+    margin-left: 15px;
+    border-collapse: collapse;
+}
+
+table td { height: 15px; }
+
+
+input[type="text"].w30 { width: 30px; }
+
+input[type="text"].w60 { width: 60px; }
+
+input[type="text"].w20 { width: 20px; }
+
+select { font-size: 10px; }
+
+input[type="button"] {
+    padding: 2px 4px;
+    font-size: 10px;
+}
+
+input[type="button"].big1 {
+    color: green;
+    padding: 3px 5px;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+input[type="button"].big2 {
+    color: blue;
+    padding: 3px 7px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+input[type="button"]:hover { color: red; }
+
+div {
+/**    border: solid 8px red;**/
+/**    box-sizing: border-box;**/
+    text-align: left;
+    /**	     line-height: 100px;**/
+    /**	     font-weight: bold;**/
+    /**	     font-size: 10px;**/
+    width: 700px;
+}
+
+.box2 {
+    float: left;
+    text-align: center;
+    /**	     border-color: yellow;**/
+    width: 40%; /** 横幅50% **/
+}
+
+.box3 {
+    float: left;
+    /**	     border-color: yellow;**/
+    width: 60%; /** 横幅50% **/
+}
+
+.box4 {
+    /** float: left;**/
+    /**	     border-color: yellow;**/
+    width: 0%; /** 横幅50% **/
+}
+
+.boxA {
+    border: none;
+    &:after {
+	content: "";
+	display: block;
+	clear: both;
+    }
+}

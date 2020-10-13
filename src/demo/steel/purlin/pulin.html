@@ -1,0 +1,224 @@
+<!Doctype html>
+<html lang="en">
+
+    <head>
+	<meta charset="utf-8">
+	<title>Purlin</title>
+	<style>
+	</style>
+	<link rel="stylesheet" href="css/connect.css">
+	<script src="pulin.js"></script>
+	<script src="../../menu.js"></script>
+    </head>
+
+    <body>
+	<!--
+	   ------------------------------------------------------------------------
+	   -->
+	<div class="boxA">
+
+	    <div class="box1" id = "a-box">
+
+		<h1>
+		    <u> Purlin Design</u>
+		</h1>
+
+		<p>
+		    <h4>- Title; &nbsp; &nbsp;
+			<input type="text" style="width:600px" id="job" >
+		    </h4>
+		</p>
+
+	    </div >
+
+	</div>
+
+	<div class="boxA">
+
+	    <p><h4> - Input</h4></p>
+
+	    <div class="box2" id="b-box">
+
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td>
+				Member; &nbsp;
+			    </td>
+			    <td>
+				<select id="Memb" onCharge="OnButtonClick()">
+				    <option value="C-100x50x20x2.3">C-100x50x20x2.3</option>
+				    <option value="C-125x50x20x2.3">C-125x50x20x2.3</option>
+				    <option value="C-150x50x20x2.3">C-150x50x20x2.3</option>
+				    <option value="C-125x50x20x3.2">C-125x50x20x3.2</option>
+				    <option value="C-150x50x20x3.2">C-150x50x20x3.2</option>
+				    <option value="C-150x75x20x3.2">C-150x75x20x3.2</option>
+				    <option value="C-200x75x20x3.2">C-200x75x20x3.2</option>
+				    <option value="C-200x75x25x3.2">C-200x75x25x3.2</option>
+				    <option value="C-200x75x25x4.5">C-200x75x25x4.5</option>
+				    <option value="2C-200x75x25x3.2">2C-200x75x25x3.2</option>
+				</select>
+			    </td>
+			</tr>
+
+			<tr>
+			    <td style="width:180px">
+				Roof:
+			    </td>
+			    <td>
+				<input type="text" id="wroof" style="width:40px"  onChange="OnButtonClick()">
+			    </td><td>
+				&nbsp;kN/m<sup>2</sup>
+			    </td>
+			</tr>
+
+			<tr>
+			    <td style="width:180px">
+				Self Weight:
+			    </td>
+			    <td id="wsteel">
+			    </td><td>
+				&nbsp;kN/m<sup>2</sup>
+			    </td>
+			</tr>
+
+			<tr>
+			    <td style="width:180px">
+				Other:
+			    </td>
+			    <td>
+				<input type="text" id="wother" style="width:40px"  onChange="OnButtonClick()">
+			    </td><td>
+				&nbsp;kN/m<sup>2</sup>
+			    </td>
+			</tr>
+
+			<tr>
+			    <td style="width:180px">
+				Live Load:
+			    </td>
+			    <td>
+				<input type="text" id="wlive" style="width:40px"  onChange="OnButtonClick()">
+			    </td><td>
+				&nbsp;kN/m<sup>2</sup>
+			    </td>
+			</tr>
+		    </tbody>
+		</table>
+
+	    </div>
+	    <div class="box2" id="b-box">
+
+		<table>
+		    <tbody>
+
+			<tr>
+			    <td style="width:180px">
+				Span:
+			    </td>
+			    <td>
+				<input type="text" id="span" style="width:40px"  onChange="OnButtonClick()">
+				&nbsp;m
+			    </td>
+			</tr>
+
+			<tr>
+			    <td style="width:180px">
+				Spacing:
+			    </td>
+			    <td>
+				<input type="text" id="area" style="width:40px"  onChange="OnButtonClick()">
+				&nbsp;m
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Slope:
+			    </td>
+			    <td>
+				<input type="text" id="slope"  onChange="OnButtonClick()">
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				F<sub>y</sub>;
+			    </td>
+			    <td>
+				<input type="text" id="fy" onchange="OnButtonClick()">
+				&nbsp;N/mm<sup>2</sup>
+			    </td>
+			</tr>
+
+			<tr>
+			    <td>
+				Def. Limitation;
+			    </td>
+			    <td>
+				Span/
+				<input type="text" id="reqdv" onchange="OnButtonClick()">
+			    </td>
+			</tr>
+
+		    </tbody>
+		</table>
+
+		<table>
+		    <tbody>
+			<tr>
+			    <!--
+			    <td>
+				Design Method;
+			    </td>
+			    <td>
+				&nbsp;&nbsp;
+				<select id="method" onChange="OnButtonClick()">
+				    <option value="ASD">ASD</option>
+				    <option value="LRFD">LRFD</option>
+				</select>
+			    </td>
+			    -->
+			    </td>
+			</tr>
+
+			<p align="right">
+			    <input type="button" value="Exe" onclick="OnButtonClick();">
+			</p>
+
+		    </tbody>
+		</table>
+
+	    </div>
+
+	</div>
+
+	<!--
+	   ------------------------------------------------------------------------
+	   -->
+
+	<div class="boxA">
+	    <div class="box4">
+		<p>
+	  </br>
+		</p>
+
+		<!--
+		     <input type="button" value="EXE" onclick="OnButtonClick();">
+		   -->
+	    </div>
+	</div>
+
+	<!--
+	   ------------------------------------------------------------------------
+	   -->
+
+	<div class="boxA">
+	    <div class="box5" id="result">
+	    </div>
+	</div>
+
+    </body>
+
+</html>
