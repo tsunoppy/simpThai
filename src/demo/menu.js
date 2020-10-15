@@ -245,6 +245,22 @@ fileMenu3.append(new nw.MenuItem({
 menubar.append(new nw.MenuItem({ label: 'Home', submenu: fileMenu3}));
 */
 
+var fileMenu5 = new nw.Menu();
+
+fileMenu5.append(new nw.MenuItem({
+  label: 'About',
+    click: function() {
+	var link = "views/us.html";
+	var win = nw.Window.open (link, {
+	    position: 'center',
+	    width: 450,
+	    height: 300
+	});
+  }
+}));
+
+menubar.append(new nw.MenuItem({ label: 'Help', submenu: fileMenu5}));
+
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -266,3 +282,4 @@ menu.append(new nw.MenuItem({
 
 tray.menu = menu;
 */
+
