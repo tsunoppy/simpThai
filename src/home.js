@@ -1,5 +1,5 @@
 window.onload = function (){
-    homeback();
+    rc();
 }
 
 function homeback(){
